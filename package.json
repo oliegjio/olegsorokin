@@ -1,0 +1,24 @@
+{
+  "name": "olegsorokin",
+  "version": "0.1.0",
+  "description": "WordPress Portfolio Theme",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliegjio/olegsorokin.git"
+  },
+  "keywords": [
+    "WordPress",
+    "Portfolio",
+    "Theme"
+  ],
+  "author": "Oliegjio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oliegjio/olegsorokin/issues"
+  },
+  "homepage": "https://github.com/oliegjio/olegsorokin#readme"
+}
