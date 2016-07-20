@@ -6,6 +6,8 @@ var imagemin = require('gulp-imagemin');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var util = require('gulp-util');
+var del = require('del');
+var vinylPaths = require('vinyl-paths');
 
 var sass_src = [
   './*.sass',
@@ -78,6 +80,9 @@ gulp.task('js', function(){
     .pipe(concat('all.js'))
     .on('error', util.log)
     .pipe(uglify({mangle: false}))
+    .pipe(vinylPaths(del([
+      './script/!all.js'
+    ])))
     .pipe(gulp.dest(js_dest));
 });
 

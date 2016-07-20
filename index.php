@@ -4,9 +4,6 @@
 <h2>Header 2</h2>
 <br>
 <h3>Header 3</h3>
-<div class="parallax-test" data-stellar-background-ratio="0.1" data-stellar-ratio="2">
-
-</div>
 <br>
 <h4>Header 4</h4>
 <br>
@@ -18,4 +15,11 @@
 <br>
 <a href="">Link</a>
 <br>
+<ul>
+  <li>List</li>
+  <li>List</li>
+  <li>List</li>
+  <li>List</li>
+  <li>List</li>
+</ul>
 <?php get_footer(); ?>

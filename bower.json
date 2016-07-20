@@ -22,7 +22,6 @@
   ],
   "dependencies": {
     "bourbon": "^4.2.7",
-    "jquery-scrollspy": "*",
-    "jquery.stellar": "stellar.js#^0.6.2"
+    "jquery-scrollspy": "*"
   }
 }

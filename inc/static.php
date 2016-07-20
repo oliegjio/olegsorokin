@@ -13,7 +13,7 @@ function os_theme_script()
   );
   wp_enqueue_script(
     'stellar_js',
-    get_template_directory_uri() . '/bower_components/jquery.stellar/jquery.stellar.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js',
     array('jquery'),
     false,
     true
@@ -30,21 +30,21 @@ function os_theme_script()
     'https://cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js',
     array(),
     false,
-    true
+    false
   );
   wp_enqueue_script(
     'respond_js',
     'https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js',
     array(),
     false,
-    true
+    false
   );
   wp_enqueue_script(
     'html5shiv_js',
     'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js',
     array(),
     false,
-    true
+    false
   );
 
   $wp_scripts->add_data('html5shiv_js', 'conditional', 'lt IE 9');
