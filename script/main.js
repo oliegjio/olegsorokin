@@ -1,3 +1,1 @@
-(function($) {
-  return console.log('lol');
-})(jQuery);
+(function($) {})(jQuery);

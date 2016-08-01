@@ -17,7 +17,6 @@ var exclude = function(path){
     excluded.forEach(function(element, index){
       path.push('!' + element + '/**/*');
     });
-    console.log(path);
     return path;
   }
   if(typeof path == 'string'){
@@ -26,13 +25,12 @@ var exclude = function(path){
     excluded.forEach(function(element, index){
       newPath.push('!' + element + '/**/*');
     });
-    console.log(newPath);
     return newPath;
   }
 }
 
 var sass_src = exclude([
-  './style/**/*.sass'
+  './style/**/*.scss'
 ]);
 
 var sass_dest = '.';
