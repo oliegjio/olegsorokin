@@ -1,1 +1,5 @@
-(function($) {})(jQuery);
+(function($) {
+  return $(function() {
+    return $('#carousel').slick();
+  });
+})(jQuery);
