@@ -1,3 +1,0 @@
-(($)->
-  $(window).stellar();
-)(jQuery)

@@ -1,25 +1,12 @@
-<?php get_header(); ?>
-<h1>Header 1</h1>
-<br>
-<h2>Header 2</h2>
-<br>
-<h3>Header 3</h3>
-<br>
-<h4>Header 4</h4>
-<br>
-<p>
-  Paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph.
-</p>
-<br>
-<span>Span</span>
-<br>
-<a href="">Link</a>
-<br>
-<ul>
-  <li>List</li>
-  <li>List</li>
-  <li>List</li>
-  <li>List</li>
-  <li>List</li>
-</ul>
-<?php get_footer(); ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>WordPress Web Developer | Oleg Sorokin</title>
+    <link rel="stylesheet" href="/style/main.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <h1>Test</h1>
+  </body>
+</html>
