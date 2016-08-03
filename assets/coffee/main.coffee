@@ -1,4 +1,5 @@
 (($)->
+  console.log animation.variable
   $ ->
     $welcome_section_shadow = $('.welcome-section-shadow')
     $header = $('header')

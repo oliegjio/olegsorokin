@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var util = require('gulp-util');
+var jade = require('gulp-jade-php');
 
 var excluded = [
   'node_modules',
@@ -29,43 +30,48 @@ var exclude = function(path){
   }
 }
 
-var sass_src = exclude([
-  './style/**/*.sass'
-]);
+var jade_src = 'assets/jade/**/*.jade';
+var jade_dest = 'template/';
 
-var sass_dest = '.';
+gulp.task('jade', function(){
+  gulp.src(jade_src)
+    .pipe(jade())
+    .on('error', util.log)
+    .pipe(gulp.dest(jade_dest));
+});
+
+var sass_src = exclude([
+  'assets/sass/**/*.sass'
+]);
+var sass_dest = 'style/';
 
 gulp.task('sass', function(){
-  gulp.src(sass_src, {base: './'})
-    .pipe(sass({
-      outputStyle: 'expanded'
-    }))
+  gulp.src(sass_src)
+    .pipe(sass())
     .on('error', util.log)
     .pipe(gulp.dest(sass_dest));
 });
 
 var coffee_src = exclude([
-  './script/**/*.coffee'
+  'assets/coffee/**/*.coffee'
 ]);
-
-var coffee_dest = '.';
+var coffee_dest = 'script/';
 
 gulp.task('coffee', function(){
-  gulp.src(coffee_src, {base: './'})
+  gulp.src(coffee_src)
     .pipe(coffee({bare: true}))
     .on('error', util.log)
     .pipe(gulp.dest(coffee_dest));
 });
 
 var js_src = exclude([
-  './script/main.js',
-  './script/animation.js'
+  'script/main.js',
+  'script/animation.js'
 ]);
-
-var js_dest = './script/';
+var js_dest = 'script/';
 
 gulp.task('js', function(){
-  gulp.src(js_src, {base: './'})
+  gulp.src(js_src)
     .pipe(concat('all.js'))
     .on('error', util.log)
     .pipe(uglify({mangle: false}))
@@ -76,12 +82,14 @@ gulp.task('watch', function(){
   gulp.watch(sass_src, ['sass']);
   gulp.watch(coffee_src, ['coffee']);
   gulp.watch(js_src, ['js']);
+  gulp.watch(jade_src, ['jade']);
 });
 
 var tasks = [
   'sass',
   'coffee',
   'js',
+  'jade',
   'watch'
 ];
 

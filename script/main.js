@@ -1,4 +1,5 @@
 (function($) {
+  console.log(animation.variable);
   return $(function() {
     var $header, $welcome_section_shadow;
     $welcome_section_shadow = $('.welcome-section-shadow');
