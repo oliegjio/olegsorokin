@@ -11,7 +11,7 @@
     <script src="bower_components/flexibility/flexibility.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery-scrollspy/jquery-scrollspy.js"></script>
-    <!-- <script src="bower_components/parallax.js/parallax.min.js"></script> -->
+    <script src="bower_components/parallax.js/parallax.min.js"></script>
     <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
 
     <link rel="stylesheet" href="/style/main.css" media="screen" title="no title" charset="utf-8">

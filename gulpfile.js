@@ -30,7 +30,7 @@ var exclude = function(path){
 }
 
 var sass_src = exclude([
-  './style/**/*.scss'
+  './style/**/*.sass'
 ]);
 
 var sass_dest = '.';
