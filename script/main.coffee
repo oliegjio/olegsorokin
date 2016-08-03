@@ -6,7 +6,7 @@
     console.log $header.offset().top
 
     $header.scrollspy
-      min: $header.offset().top + 55 
+      min: $header.offset().top + 55
       onEnter: (element, position) ->
         $header.addClass 'fixed-header'
       onLeave: (element, position) ->
