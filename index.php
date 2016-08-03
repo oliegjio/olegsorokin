@@ -10,7 +10,7 @@
 
     <script src="bower_components/flexibility/flexibility.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- <script src="bower_components/jquery-scrollspy/jquery-scrollspy.js"></script> -->
+    <script src="bower_components/jquery-scrollspy/jquery-scrollspy.js"></script>
     <!-- <script src="bower_components/parallax.js/parallax.min.js"></script> -->
     <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
 
@@ -18,7 +18,7 @@
     <script src="script/all.js"></script>
   </head>
   <body>
-    <header style="display: none;">
+    <header>
       <h3 class="logo">
         <a href="#">
           <span>O</span>leg <span>S</span>orokin
@@ -31,11 +31,11 @@
       </div>
     </header>
     <div id="carousel">
-      <div><img src="/img/background.jpg"></div>
-      <div><img src="/img/nature.jpg"></div>
-      <div><img src="/img/nature.jpg"></div>
+      <div><img src="/img/background.png"></div>
+      <div><img src="/img/nature.png"></div>
+      <div><img src="/img/nature.png"></div>
     </div>
-    <!-- <div class="welcome-section parallax-container parallax-window" data-parallax="scroll" data-image-src="./../img/background.jpg">
+    <div class="welcome-section parallax-container parallax-window" data-parallax="scroll" data-image-src="./../img/background.jpg">
       <div class="welcome-section-shadow">
         <div class="container">
           <h2>WordPress & jQuery</h2>
@@ -44,6 +44,6 @@
           <a class="hire-me" href="#">Hire Me</a>
         </div>
       </div>
-    </div> -->
+    </div>
   </body>
 </html>

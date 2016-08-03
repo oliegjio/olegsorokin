@@ -16,7 +16,7 @@ body {
 }
 
 .hire-me {
-  font-size: 24px;
+  font-size: $h4;
   height: 45px;
   flex: 2 1 auto;
   text-align: center;
@@ -26,26 +26,26 @@ body {
   color: white;
   text-transform: uppercase;
   padding: 5px 20px;
-  margin-left: 20px;
   border-radius: 100px;
   transition: all 0.5s ease;
   text-decoration: none;
   &:hover {
-    background-color: white;
+    background-color: transparent;
     color: $secondary-text-color;
   }
 }
 
 $header-height: 110px;
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: $header-height;
-  background-color: rgba(255,255,255,.88);
   box-shadow: 0px 2px 10px 0px rgba(0,0,0,.11);
   display: flex;
+  background-color: transparent;;
+  transition: all 0.5s ease;
   flex-flow: row nowrap;
   width: 100%;
   .logo {
@@ -53,7 +53,7 @@ header {
     flex: 1 1 190px;
     margin-left: 150px;
     a {
-      color: $primary-text-color;
+      color: white;
       text-decoration: none;
       display: inline-block;
       height: $header-height;
@@ -70,10 +70,18 @@ header {
   .buttons-wrapper {
     display: flex;
     flex-flow: row nowrap;
-    flex: 0 1 500px;
+    flex: 0 1 250px;
     align-items: center;
     margin-right: 150px;
     font-weight: bold;
+    .hire-me {
+      margin-left: 20px;
+      font-size: $p;
+      height: 30px;
+      line-height: 30px;
+      width: 50px;
+      display: none;
+    }
     a.link {
       transition: all 0.5s ease;
       text-decoration: none;
@@ -81,7 +89,7 @@ header {
       text-align: center;
       flex: 3 1 auto;
       line-height: $header-height;
-      color: $primary-text-color;
+      color: white;
       position: relative;;
       &:hover {
         color: $primary-color;
@@ -108,36 +116,74 @@ header {
     }
   }
 }
+.fixed-header {
+  // background-color: rgba(255,255,255,.85);
+  background-color: white;
+  position: fixed;
+  .logo {
+    a {
+      color: $primary-text-color;
+    }
+  }
+  .buttons-wrapper {
+    flex: 0 1 500px;
+    a.link {
+      color: $primary-text-color;
+    }
+    .hire-me {
+      display: block;
+    }
+  }
+}
 
-// .welcome-section {
-//   background-image: url(../img/background.jpg);
-//   width: 100%;
-//   height: 1000px;
-//   .welcome-section-shadow {
-//     width: 100%;
-//     height: 100%;
-//     background-color: rgba(0,0,0,.50);
-//     .container {
-//       display: flex;
-//       flex-flow: column nowrap;
-//       align-items: center;
-//       padding-top: 300px;
-//       margin: 0 auto;
-//       color: white;
-//       width: 980px;
-//     }
-//     #carousel {
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//     }
-//   }
-// }
+.welcome-section {
+  background-image: url(../img/background.jpg);
+  width: 100%;
+  height: 100vh;
+  .welcome-section-shadow {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.50);
+    .container {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      padding-top: 250px;
+      margin: 0 auto;
+      color: white;
+      width: 980px;
+    }
+    .hire-me {
+      &:hover {
+        color: white;
+      }
+    }
+    h2 {
+      font-family: Arial;
+      letter-spacing: 8px;
+      margin: 0 0 20px 0;
+    }
+    h1 {
+      margin: 0;
+    }
+    p {
+      margin: 40px 0 120px 0;
+    }
+    .slick-prev {
+      left: 50px !important;
+    }
+    .slick-next {
+      right: 50px;
+    }
+  }
+}
 
 #carousel {
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   width: 100%;
-  height: 1000px;
+  height: 100vh;
 }

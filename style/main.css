@@ -55,26 +55,26 @@ body {
   color: white;
   text-transform: uppercase;
   padding: 5px 20px;
-  margin-left: 20px;
   border-radius: 100px;
   transition: all 0.5s ease;
   text-decoration: none;
 }
 
 .hire-me:hover {
-  background-color: white;
+  background-color: transparent;
   color: #5B5C5D;
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 110px;
-  background-color: rgba(255, 255, 255, 0.88);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.11);
   display: flex;
+  background-color: transparent;
+  transition: all 0.5s ease;
   flex-flow: row nowrap;
   width: 100%;
 }
@@ -86,7 +86,7 @@ header .logo {
 }
 
 header .logo a {
-  color: #333333;
+  color: white;
   text-decoration: none;
   display: inline-block;
   height: 110px;
@@ -105,10 +105,19 @@ header .logo a span {
 header .buttons-wrapper {
   display: flex;
   flex-flow: row nowrap;
-  flex: 0 1 500px;
+  flex: 0 1 250px;
   align-items: center;
   margin-right: 150px;
   font-weight: bold;
+}
+
+header .buttons-wrapper .hire-me {
+  margin-left: 20px;
+  font-size: 18px;
+  height: 30px;
+  line-height: 30px;
+  width: 50px;
+  display: none;
 }
 
 header .buttons-wrapper a.link {
@@ -118,7 +127,7 @@ header .buttons-wrapper a.link {
   text-align: center;
   flex: 3 1 auto;
   line-height: 110px;
-  color: #333333;
+  color: white;
   position: relative;
 }
 
@@ -147,10 +156,81 @@ header .buttons-wrapper a.link:hover:before {
   transform: scaleX(1);
 }
 
+.fixed-header {
+  background-color: white;
+  position: fixed;
+}
+
+.fixed-header .logo a {
+  color: #333333;
+}
+
+.fixed-header .buttons-wrapper {
+  flex: 0 1 500px;
+}
+
+.fixed-header .buttons-wrapper a.link {
+  color: #333333;
+}
+
+.fixed-header .buttons-wrapper .hire-me {
+  display: block;
+}
+
+.welcome-section {
+  background-image: url(../img/background.jpg);
+  width: 100%;
+  height: 100vh;
+}
+
+.welcome-section .welcome-section-shadow {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.welcome-section .welcome-section-shadow .container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-top: 250px;
+  margin: 0 auto;
+  color: white;
+  width: 980px;
+}
+
+.welcome-section .welcome-section-shadow .hire-me:hover {
+  color: white;
+}
+
+.welcome-section .welcome-section-shadow h2 {
+  font-family: Arial;
+  letter-spacing: 8px;
+  margin: 0 0 20px 0;
+}
+
+.welcome-section .welcome-section-shadow h1 {
+  margin: 0;
+}
+
+.welcome-section .welcome-section-shadow p {
+  margin: 40px 0 120px 0;
+}
+
+.welcome-section .welcome-section-shadow .slick-prev {
+  left: 50px !important;
+}
+
+.welcome-section .welcome-section-shadow .slick-next {
+  right: 50px;
+}
+
 #carousel {
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   width: 100%;
-  height: 1000px;
+  height: 100vh;
 }
