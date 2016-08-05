@@ -5,16 +5,7 @@ html
     meta(charset='utf-8')
     title WordPress Web Developer | Oleg Sorokin
     
-    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick.css')
-    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick-theme.css')
-    script(src='../bower_components/jquery/dist/jquery.min.js')
-    script(src='../bower_components/flexibility/flexibility.js')
-    script(src='../bower_components/jquery-scrollspy/jquery-scrollspy.js')
-    script(src='../bower_components/parallax.js/parallax.min.js')
-    script(src='../bower_components/slick-carousel/slick/slick.min.js')
-    
-    link(rel='stylesheet', href='../style/main.css')
-    script(src='../script/all.js')
+    link(rel='stylesheet', href='../css/main.css')
     
   body
     header
@@ -33,12 +24,26 @@ html
         img(src='../img/background.png')
       div
         img(src='../img/nature.png')
-      div
-        img(src='../img/nature.png')
-    div.welcome-section.parallax-container.parallax-window(data-parallax='scroll', data-image-src='./../img/background.jpg')
+    div.welcome-section
       div.welcome-section-shadow
         div.container
           h2 WordPress & jQuery
           h1 Web Developer
           p You need amazing web developer? Well, you found it!
           a.hire-me(href='#') Hire Me
+          
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+    script(src='../bower_components/flexibility/flexibility.js')
+    script(src='../bower_components/jquery-scrollspy/jquery-scrollspy.js')
+    script(src='../bower_components/parallax.js/parallax.min.js')
+    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick.css')
+    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick-theme.css')
+    script(src='../bower_components/slick-carousel/slick/slick.min.js')
+    
+    script(src='../bower_components/system.js/dist/system.js')
+    script.
+      SystemJS.config({
+        baseURL: '../js/',
+        defaultJSExtensions: true
+      });
+      SystemJS.import('main.js');

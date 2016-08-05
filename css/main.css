@@ -137,7 +137,6 @@ header {
       display: block; }
 
 .welcome-section {
-  background-image: url(../img/background.jpg);
   width: 100%;
   height: 100vh; }
   .welcome-section .welcome-section-shadow {
@@ -175,3 +174,5 @@ header {
   overflow: hidden;
   width: 100vw;
   height: 100vh; }
+
+/*# sourceMappingURL=map/main.css.map */

@@ -1,18 +1,16 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var coffee = require('gulp-coffee');
 var util = require('gulp-util');
 var jade = require('gulp-jade-php');
+var ts = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
 
 var excluded = [
   'node_modules',
   'vendor',
   'bower_components'
 ];
-
 var exclude = function(path){
   if(typeof path == 'object'){
     excluded.forEach(function(element, index){
@@ -31,8 +29,7 @@ var exclude = function(path){
 }
 
 var jade_src = 'assets/jade/**/*.jade';
-var jade_dest = 'template/';
-
+var jade_dest = 'html/';
 gulp.task('jade', function(){
   gulp.src(jade_src)
     .pipe(jade())
@@ -43,54 +40,40 @@ gulp.task('jade', function(){
 var sass_src = exclude([
   'assets/sass/**/*.sass'
 ]);
-var sass_dest = 'style/';
-
+var sass_dest = 'css/';
 gulp.task('sass', function(){
   gulp.src(sass_src)
+    .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(sourcemaps.write('map/'))
     .on('error', util.log)
     .pipe(gulp.dest(sass_dest));
 });
 
-var coffee_src = exclude([
-  'assets/coffee/**/*.coffee'
-]);
-var coffee_dest = 'script/';
+var tsProject = ts.createProject('assets/ts/tsconfig.json');
+var ts_src = 'assets/ts/**/*.ts';
+var ts_dest = 'js/';
+gulp.task('ts', function(){
+  var tsResult = tsProject.src(ts_src)
+    .pipe(sourcemaps.init())
+    .pipe(ts(tsProject))
+    .on('error', util.log);
 
-gulp.task('coffee', function(){
-  gulp.src(coffee_src)
-    .pipe(coffee({bare: true}))
-    .on('error', util.log)
-    .pipe(gulp.dest(coffee_dest));
-});
-
-var js_src = exclude([
-  'script/main.js',
-  'script/animation.js'
-]);
-var js_dest = 'script/';
-
-gulp.task('js', function(){
-  gulp.src(js_src)
-    .pipe(concat('all.js'))
-    .on('error', util.log)
-    .pipe(uglify({mangle: false}))
-    .pipe(gulp.dest(js_dest));
+  return tsResult.js
+    .pipe(sourcemaps.write('map/'))
+    .pipe(gulp.dest(ts_dest));
 });
 
 gulp.task('watch', function(){
   gulp.watch(sass_src, ['sass']);
-  gulp.watch(coffee_src, ['coffee']);
-  gulp.watch(js_src, ['js']);
+  gulp.watch(ts_src, ['ts']);
   gulp.watch(jade_src, ['jade']);
 });
 
 var tasks = [
   'sass',
-  'coffee',
-  'js',
+  'ts',
   'jade',
   'watch'
 ];
-
 gulp.task('default', tasks);
