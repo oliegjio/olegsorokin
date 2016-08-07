@@ -1,0 +1,27 @@
+@import '../setup/vars'
+@import '../setup/mixins'
+
+$primary-button--height: 50px
+$primary-button--border-width: 4px
+$primary-button--border-radius: ($primary-button--height + $primary-button--border-width * 2) / 2
+
+.primary-button
+  background-color: $color__primary
+  text-transform: uppercase
+  text-align: center
+  font-size: $font__size--4
+  font-weight: bold
+  padding: 0 20px
+  border: $primary-button--border-width solid $color__primary
+  display: inline-block
+  text-decoration: none
+  color: white
+  border-radius: $primary-button--border-radius
+  height: $primary-button--height
+  line-height: $primary-button--height
+  transition: background-color 0.5s ease, color 0.5s ease
+  +modifier('color-dark--hover')
+    &:hover
+      color: $color__text--primary
+  &:hover
+    background-color: transparent

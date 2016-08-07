@@ -32,8 +32,8 @@ var jade_src = 'assets/jade/**/*.jade';
 var jade_dest = 'html/';
 gulp.task('jade', function(){
   gulp.src(jade_src)
-    .pipe(jade())
     .on('error', util.log)
+    .pipe(jade())
     .pipe(gulp.dest(jade_dest));
 });
 
@@ -43,10 +43,10 @@ var sass_src = exclude([
 var sass_dest = 'css/';
 gulp.task('sass', function(){
   gulp.src(sass_src)
+    .on('error', util.log)
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write('map/'))
-    .on('error', util.log)
     .pipe(gulp.dest(sass_dest));
 });
 
@@ -55,9 +55,9 @@ var ts_src = 'assets/ts/**/*.ts';
 var ts_dest = 'js/';
 gulp.task('ts', function(){
   var tsResult = tsProject.src(ts_src)
+    .on('error', util.log)
     .pipe(sourcemaps.init())
-    .pipe(ts(tsProject))
-    .on('error', util.log);
+    .pipe(ts(tsProject));
 
   return tsResult.js
     .pipe(sourcemaps.write('map/'))

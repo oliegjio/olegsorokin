@@ -1,17 +1,22 @@
+///<reference path="typings/globals/jquery/index.d.ts"/>
+///<reference path="typings/globals/slick-carousel/index.d.ts"/>
+///<reference path="d.ts/jquery-scrollspy.d.ts"/>
 import * as Test from './test';
 
 $(() => {
   let $welcome_section_shadow: JQuery = $('.welcome-section-shadow');
-  let $header: JQuery = $('header');
+  let $header: JQuery = $('.header');
   let $carousel: JQuery = $('#carousel');
 
   $header.scrollspy({
     min: $header.offset().top + 55,
     onEnter: (element, position) => {
-      $header.addClass('fixed-header');
+      $header.addClass('header--fixed');
+      $header.find('.primary-button').addClass('primary-button--color-dark--hover');
     },
     onLeave: (element, position) => {
-      $header.removeClass('fixed-header');
+      $header.removeClass('header--fixed');
+      $header.find('.primary-button').removeClass('primary-button--color-dark--hover');
     }
   });
 

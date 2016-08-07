@@ -7,43 +7,43 @@ html
     
     link(rel='stylesheet', href='../css/main.css')
     
-  body
-    header
-      h3.logo
-        a(href='#')
-          span O
-          | leg 
-          span S
-          | orokin
-      div.buttons-wrapper
-        a.link(href='#') About
-        a.link(href='#') Contact
+body
+  header.header
+    div.header__logo-wrapper
+      a(href='#').header__logo
+        span.header__accented O
+        | leg 
+        span.header__accented S
+        | orokin
+    div.header__links-wrapper
+      a.header__link(href='#') About
+      a.header__link(href='#') Contact
+      a.primary-button(href='#') Hire Me
+  div#carousel
+    div
+      img(src='../images/background.png')
+    div
+      img(src='../images/nature.png')
+  div.welcome-section
+    div.welcome-section-shadow
+      div.container
+        h2 WordPress & jQuery
+        h1 Web Developer
+        p You need amazing web developer? Well, you found it!
         a.hire-me(href='#') Hire Me
-    div#carousel
-      div
-        img(src='../images/background.png')
-      div
-        img(src='../images/nature.png')
-    div.welcome-section
-      div.welcome-section-shadow
-        div.container
-          h2 WordPress & jQuery
-          h1 Web Developer
-          p You need amazing web developer? Well, you found it!
-          a.hire-me(href='#') Hire Me
-          
-    script(src='../bower_components/jquery/dist/jquery.min.js')
-    script(src='../bower_components/flexibility/flexibility.js')
-    script(src='../bower_components/jquery-scrollspy/jquery-scrollspy.js')
-    script(src='../bower_components/parallax.js/parallax.min.js')
-    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick.css')
-    link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick-theme.css')
-    script(src='../bower_components/slick-carousel/slick/slick.min.js')
-    
-    script(src='../bower_components/system.js/dist/system.js')
-    script.
-      SystemJS.config({
-        baseURL: '../js/',
-        defaultJSExtensions: true
-      });
-      SystemJS.import('main.js');
+        
+  script(src='../bower_components/jquery/dist/jquery.min.js')
+  script(src='../bower_components/flexibility/flexibility.js')
+  script(src='../bower_components/jquery-scrollspy/jquery-scrollspy.js')
+  script(src='../bower_components/parallax.js/parallax.min.js')
+  link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick.css')
+  link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick-theme.css')
+  script(src='../bower_components/slick-carousel/slick/slick.min.js')
+  
+  script(src='../bower_components/system.js/dist/system.js')
+  script.
+    SystemJS.config({
+      baseURL: '../js/',
+      defaultJSExtensions: true
+    });
+    SystemJS.import('main.js');

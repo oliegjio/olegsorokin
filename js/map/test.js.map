@@ -1,1 +1,1 @@
-{"version":3,"sources":["test.ts"],"names":[],"mappings":";;;QAAW,QAAQ;;;;YAAR,sBAAA,QAAQ,GAAG,SAAS,CAAA,CAAC","file":"test.js","sourcesContent":["export let variable = 'testvar';\r\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["test.ts"],"names":[],"mappings":";;;QAAW,QAAQ;;;;YAAR,sBAAA,QAAQ,GAAG,SAAS,CAAA,CAAC","file":"test.js","sourcesContent":["export let variable = 'testvar';\n"],"sourceRoot":"/source/"}
