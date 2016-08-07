@@ -75,6 +75,7 @@ p {
     text-align: center;
     line-height: 110px;
     transition: color 0.5s ease;
+    display: inline-block;
     position: relative; }
     .header__link:hover {
       color: #0099CC; }

@@ -5,12 +5,15 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             $(function () {
-                var $welcome_section_shadow = $('.welcome-section-shadow');
-                var $header = $('.header');
-                var $carousel = $('#carousel');
+                var $welcome_section_shadow = $('.welcome-section-shadow').first();
+                var $header = $('.header').first();
+                var $carousel = $('.carousel').first();
+                var $body = $('body');
                 $header.scrollspy({
-                    min: $header.offset().top + 55,
+                    min: $header.height() / 2,
+                    max: $body.height(),
                     onEnter: function (element, position) {
+                        console.log($body.height());
                         $header.addClass('header--fixed');
                         $header.find('.primary-button').addClass('primary-button--color-dark--hover');
                     },
@@ -20,7 +23,7 @@ System.register([], function(exports_1, context_1) {
                     }
                 });
                 $carousel.slick({
-                    appendArrows: $welcome_section_shadow.get(0),
+                    appendArrows: $welcome_section_shadow,
                     autoplaySpeed: 2000,
                     arrows: true,
                     fade: true,

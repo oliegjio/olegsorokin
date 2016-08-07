@@ -29,7 +29,7 @@ var exclude = function(path){
 }
 
 var jade_src = 'assets/jade/**/*.jade';
-var jade_dest = 'html/';
+var jade_dest = 'templates/';
 gulp.task('jade', function(){
   gulp.src(jade_src)
     .on('error', util.log)

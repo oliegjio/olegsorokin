@@ -4,13 +4,16 @@
 import * as Test from './test';
 
 $(() => {
-  let $welcome_section_shadow: JQuery = $('.welcome-section-shadow');
-  let $header: JQuery = $('.header');
-  let $carousel: JQuery = $('#carousel');
+  let $welcome_section_shadow: JQuery = $('.welcome-section-shadow').first();
+  let $header: JQuery = $('.header').first();
+  let $carousel: JQuery = $('.carousel').first();
+  let $body: JQuery = $('body');
 
   $header.scrollspy({
-    min: $header.offset().top + 55,
+    min: $header.height() / 2,
+    max: $body.height(),
     onEnter: (element, position) => {
+      console.log($body.height());
       $header.addClass('header--fixed');
       $header.find('.primary-button').addClass('primary-button--color-dark--hover');
     },
@@ -22,7 +25,7 @@ $(() => {
 
   $carousel.slick({
     // autoplay: true,
-    appendArrows: $welcome_section_shadow.get(0),
+    appendArrows: $welcome_section_shadow,
     autoplaySpeed: 2000,
     arrows: true,
     fade: true,
