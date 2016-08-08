@@ -1,3 +1,145 @@
+/*! Pushy - v1.0.0 - 2016-3-1
+* Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
+* https://github.com/christophery/pushy/
+* by Christopher Yee */
+/* Menu Appearance */
+.pushy {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  z-index: 9999;
+  background: #191918;
+  overflow: auto;
+  visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* enables momentum scrolling in iOS overflow elements */ }
+  .pushy a {
+    display: block;
+    color: #b3b3b1;
+    padding: 15px 30px;
+    text-decoration: none;
+    outline: 0; }
+  .pushy a:hover {
+    color: #FFF; }
+  .pushy ul:first-child {
+    margin-top: 10px; }
+  .pushy.pushy-left {
+    left: 0; }
+  .pushy.pushy-right {
+    right: 0; }
+
+/* Menu Movement */
+.pushy-left {
+  -webkit-transform: translate3d(-200px, 0, 0);
+  -ms-transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0); }
+
+.pushy-open-left #container,
+.pushy-open-left .push {
+  -webkit-transform: translate3d(200px, 0, 0);
+  -ms-transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0); }
+
+.pushy-right {
+  -webkit-transform: translate3d(200px, 0, 0);
+  -ms-transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0); }
+
+.pushy-open-right #container,
+.pushy-open-right .push {
+  -webkit-transform: translate3d(-200px, 0, 0);
+  -ms-transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0); }
+
+.pushy-open-left .pushy,
+.pushy-open-right .pushy {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+/* Menu Transitions */
+#container,
+.pushy,
+.push {
+  transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99); }
+
+/* Site Overlay */
+.site-overlay {
+  display: none; }
+
+.pushy-open-left .site-overlay,
+.pushy-open-right .site-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-animation: fade 500ms;
+  animation: fade 500ms; }
+
+@keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* Submenu Appearance */
+.pushy-submenu {
+  /* Submenu Icon */ }
+  .pushy-submenu ul {
+    padding-left: 15px;
+    transition: max-height 0.2s ease-in-out; }
+    .pushy-submenu ul .pushy-link {
+      transition: opacity 0.2s ease-in-out; }
+  .pushy-submenu > a {
+    position: relative; }
+  .pushy-submenu > a::after {
+    content: '';
+    display: block;
+    height: 11px;
+    width: 8px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    background: url("../img/arrow.svg") no-repeat;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: transform 0.2s; }
+
+/* Submenu Movement */
+.pushy-submenu-closed ul {
+  max-height: 0;
+  overflow: hidden; }
+
+.pushy-submenu-closed .pushy-link {
+  opacity: 0; }
+
+.pushy-submenu-open {
+  /* Submenu Icon */ }
+  .pushy-submenu-open ul {
+    max-height: 1000px; }
+  .pushy-submenu-open .pushy-link {
+    opacity: 1; }
+  .pushy-submenu-open a::after {
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    -ms-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg); }
+
+.no-csstransforms3d .pushy-submenu-closed ul {
+  max-height: none;
+  display: none; }
+
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -34,6 +176,7 @@ p {
   font-weight: bold;
   padding: 0 20px;
   border: 4px solid #0099CC;
+  width: 110px;
   display: inline-block;
   text-decoration: none;
   color: white;
@@ -62,11 +205,26 @@ p {
     margin: 25px 0 0 25px; }
   .header__links-wrapper {
     display: flex;
+    flex-flow: row nowrap;
     flex: 0 1 500px;
     padding-right: 200px; }
+    @media screen and (max-width: 1440px) {
+      .header__links-wrapper {
+        padding-right: 100px; } }
+    @media screen and (max-width: 1024px) {
+      .header__links-wrapper {
+        padding-right: 30px;
+        flex: 0 1 400px; } }
   .header__logo-wrapper {
-    flex: 1 1 auto;
+    flex: 1 1 230px;
+    flex-flow: row nowrap;
     padding-left: 200px; }
+    @media screen and (max-width: 1440px) {
+      .header__logo-wrapper {
+        padding-left: 100px; } }
+    @media screen and (max-width: 1024px) {
+      .header__logo-wrapper {
+        padding-left: 30px; } }
   .header__link {
     flex: 1 1 auto;
     color: white;
@@ -75,28 +233,21 @@ p {
     text-align: center;
     line-height: 110px;
     transition: color 0.5s ease;
-    display: inline-block;
-    position: relative; }
+    position: relative;
+    margin-bottom: 3px; }
     .header__link:hover {
       color: #0099CC; }
-    .header__link:before {
+    .header__link:after {
       content: "";
-      position: absolute;
-      border-radius: 3px;
-      width: 100%;
+      display: block;
+      margin: -3px auto 0 auto;
       height: 3px;
-      bottom: 0;
-      left: 0;
-      background-color: #0099CC;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.3s ease-in-out 0s;
-      transition: all 0.3s ease-in-out 0s; }
-    .header__link:hover:before {
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1); }
+      width: 0px;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease; }
+    .header__link:hover:after {
+      width: 100%;
+      background: #0099CC; }
   .header__logo {
     flex: 0 1 230px;
     margin: 0;
@@ -124,6 +275,92 @@ p {
       color: #333333; }
       .header--fixed .header__logo:hover {
         color: #0099CC; }
+
+.header-carousel {
+  z-index: -1;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 1000px; }
+
+.welcome-section {
+  color: white;
+  text-align: center;
+  height: 1000px;
+  width: 100%; }
+  .welcome-section .primary-button {
+    margin: 120px auto 0 auto; }
+  .welcome-section__shadow {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%; }
+    .welcome-section__shadow .slick-prev, .welcome-section__shadow .slick-next {
+      top: 500px;
+      width: 200px;
+      height: 1000px;
+      position: absolute; }
+      .welcome-section__shadow .slick-prev::before, .welcome-section__shadow .slick-next::before {
+        transition: opacity 0.5s ease;
+        font-size: 40px; }
+      @media screen and (max-width: 1024px) {
+        .welcome-section__shadow .slick-prev, .welcome-section__shadow .slick-next {
+          width: 90px; } }
+      @media screen and (max-width: 768px) {
+        .welcome-section__shadow .slick-prev, .welcome-section__shadow .slick-next {
+          width: 50px; } }
+    .welcome-section__shadow .slick-prev {
+      left: 0;
+      box-shadow: inset 20px 0 20px 0 rgba(0, 0, 0, 0.3); }
+    .welcome-section__shadow .slick-next {
+      right: 0;
+      box-shadow: inset -20px 0 20px 0 rgba(0, 0, 0, 0.3); }
+  .welcome-section__wrapper {
+    padding-top: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 900px; }
+    @media screen and (max-width: 1024px) {
+      .welcome-section__wrapper {
+        width: 600px; } }
+    @media screen and (max-width: 768px) {
+      .welcome-section__wrapper {
+        width: 400px; } }
+  .welcome-section__primary-header {
+    margin: 0; }
+    @media screen and (max-width: 768px) {
+      .welcome-section__primary-header {
+        font-size: 32px;
+        text-decoration: underline; } }
+  .welcome-section__secondary-header {
+    margin: 0; }
+    @media screen and (max-width: 768px) {
+      .welcome-section__secondary-header {
+        font-size: 18px; } }
+
+.tools-overview {
+  background-color: #0099CC;
+  height: 180px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-around; }
+  .tools-overview__item {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column nowrap; }
+    .tools-overview__item:first-of-type {
+      margin-left: 200px; }
+    .tools-overview__item:last-of-type {
+      margin-right: 200px; }
+  .tools-overview__image {
+    width: 100px;
+    margin: 0 auto;
+    height: 100px; }
+  .tools-overview__text {
+    margin: 0; }
 
 html, body {
   margin: 0;

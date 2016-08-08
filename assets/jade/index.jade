@@ -5,6 +5,7 @@ html
     meta(charset='utf-8')
     title WordPress Web Developer | Oleg Sorokin
     
+    //- link(rel='stylesheet', href='../bower_components/pushy/css/pushy.css')
     link(rel='stylesheet', href='../css/main.css')
     
 body
@@ -19,23 +20,41 @@ body
       a.header__link(href='#') About
       a.header__link(href='#') Contact
       a.primary-button(href='#') Hire Me
-  div#carousel
+  div.header-carousel
     div
-      img(src='../images/background.png')
+      img.header-carousel__image(src='../images/background.png')
     div
-      img(src='../images/nature.png')
-  div.welcome-section
-    div.welcome-section-shadow
-      div.container
-        h2 WordPress & jQuery
-        h1 Web Developer
-        p You need amazing web developer? Well, you found it!
-        a.hire-me(href='#') Hire Me
+      img.header-carousel__image(src='../images/nature.png')
+  //- div.welcome-section
+  //-   div.welcome-section-shadow
+  //-     div.container
+  //-       h2 WordPress & jQuery
+  //-       h1 Web Developer
+  //-       p You need amazing web developer? Well, you found it!
+  //-       a.hire-me(href='#') Hire Me
+  div.welcome-section 
+    div.welcome-section__shadow
+      div.welcome-section__wrapper  
+        h2.welcome-section__secondary-header WordPress & jQuery
+        h1.welcome-section__primary-header Web Developer
+        p.welcome-section__slogan You need amazing web developer? Well, you found it!
+        a.primary-button(href='#') Hire Me
+  div.tools-overview
+    div.tools-overview__item
+        image.tools-overview__image(src='https://placehold.it/60x60')
+        p.tools-overview__text WordPress Backend Development
+    div.tools-overview__item
+        image.tools-overview__image(src='https://placehold.it/60x60')
+        p.tools-overview__text WordPress Backend Development
+    div.tools-overview__item
+        image.tools-overview__image(src='https://placehold.it/60x60')
+        p.tools-overview__text WordPress Backend Development
         
   script(src='../bower_components/jquery/dist/jquery.min.js')
   script(src='../bower_components/flexibility/flexibility.js')
   script(src='../bower_components/jquery-scrollspy/jquery-scrollspy.js')
   script(src='../bower_components/parallax.js/parallax.min.js')
+  script(src='../bower_components/pushy/js/pushy.min.js')
   link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick.css')
   link(rel='stylesheet', href='../bower_components/slick-carousel/slick/slick-theme.css')
   script(src='../bower_components/slick-carousel/slick/slick.min.js')

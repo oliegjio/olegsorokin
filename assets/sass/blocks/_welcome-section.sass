@@ -1,0 +1,51 @@
+@import '../setup/vars'
+@import '../setup/mixins'
+
+.welcome-section
+  color: white
+  text-align: center
+  height: $top-section__height
+  width: 100%
+  .primary-button
+    margin: 120px auto 0 auto
+  +element('shadow')
+    background-color: rgba(0, 0, 0, 0.20)
+    width: 100%
+    height: 100%
+    .slick-prev, .slick-next
+      top: $top-section__height / 2
+      width: 200px
+      height: $top-section__height
+      position: absolute
+      &::before
+        transition: opacity 0.5s ease
+        font-size: 40px
+      @media screen and (max-width: 1024px)
+        width: 90px
+      @media screen and (max-width: 768px)
+        width: 50px
+    .slick-prev
+      left: 0
+      box-shadow: inset 20px 0 20px 0  rgba(0, 0, 0, 0.30)
+    .slick-next
+      right: 0
+      box-shadow: inset -20px 0 20px 0  rgba(0, 0, 0, 0.30)
+  +element('wrapper')
+    padding-top: 300px
+    margin: 0 auto
+    display: flex
+    flex-flow: column nowrap
+    width: 900px
+    @media screen and (max-width: 1024px)
+      width: 600px
+    @media screen and (max-width: 768px)
+      width: 400px
+  +element('primary-header')
+    margin: 0
+    @media screen and (max-width: 768px)
+      font-size: $font__size--2
+      text-decoration: underline
+  +element('secondary-header')
+    margin: 0
+    @media screen and (max-width: 768px)
+      font-size: $font__size--5

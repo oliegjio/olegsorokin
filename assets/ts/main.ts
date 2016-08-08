@@ -4,16 +4,15 @@
 import * as Test from './test';
 
 $(() => {
-  let $welcome_section_shadow: JQuery = $('.welcome-section-shadow').first();
+  let $welcome_section_shadow: JQuery = $('.welcome-section__shadow').first();
   let $header: JQuery = $('.header').first();
-  let $carousel: JQuery = $('.carousel').first();
+  let $carousel: JQuery = $('.header-carousel').first();
   let $body: JQuery = $('body');
 
   $header.scrollspy({
     min: $header.height() / 2,
     max: $body.height(),
     onEnter: (element, position) => {
-      console.log($body.height());
       $header.addClass('header--fixed');
       $header.find('.primary-button').addClass('primary-button--color-dark--hover');
     },

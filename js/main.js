@@ -5,15 +5,14 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             $(function () {
-                var $welcome_section_shadow = $('.welcome-section-shadow').first();
+                var $welcome_section_shadow = $('.welcome-section__shadow').first();
                 var $header = $('.header').first();
-                var $carousel = $('.carousel').first();
+                var $carousel = $('.header-carousel').first();
                 var $body = $('body');
                 $header.scrollspy({
                     min: $header.height() / 2,
                     max: $body.height(),
                     onEnter: function (element, position) {
-                        console.log($body.height());
                         $header.addClass('header--fixed');
                         $header.find('.primary-button').addClass('primary-button--color-dark--hover');
                     },

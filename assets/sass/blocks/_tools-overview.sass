@@ -1,0 +1,26 @@
+@import '../setup/mixins'
+@import '../setup/vars'
+
+$tools-overview--color: white
+
+.tools-overview
+  background-color: $color__primary
+  height: 180px
+  width: 100%
+  color: $tools-overview--color
+  display: flex
+  justify-content: space-around
+  +element('item')
+    margin-top: 20px
+    display: flex
+    flex-flow: column nowrap
+    &:first-of-type
+      margin-left: 200px
+    &:last-of-type
+      margin-right: 200px
+  +element('image')
+    width: 100px
+    margin: 0 auto
+    height: 100px
+  +element('text')
+    margin: 0
