@@ -181,6 +181,19 @@ body {
 .pushy {
   z-index: 999999; }
 
+.offcanvas-menu {
+  background-color: white; }
+  .offcanvas-menu ul {
+    list-style: none;
+    padding: 0; }
+  .offcanvas-menu a {
+    color: black;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: Montserrat; }
+    .offcanvas-menu a:hover {
+      color: #0099CC; }
+
 .primary-button {
   background-color: #0099CC;
   text-transform: uppercase;
@@ -211,10 +224,10 @@ body {
   flex-flow: row nowrap;
   width: 100%;
   height: 110px;
-  z-index: 1000;
-  -webkit-transition: -webkit-transform 0.1s ease-in-out;
-  -moz-transition: -moz-transform 0.1s ease-in-out;
-  transition: transform 0.1s ease-in-out; }
+  z-index: 10000;
+  -webkit-transition: -webkit-transform 0.2s ease, background-color 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease; }
   .header .primary-button {
     flex: 0 1 auto;
     margin: 25px 0 0 25px; }
@@ -256,6 +269,8 @@ body {
     font-size: 18px;
     text-align: center;
     line-height: 110px;
+    -webkit-transition: color 0.2s ease;
+    -moz-transition: color 0.2s ease;
     transition: color 0.2s ease;
     position: relative;
     margin-bottom: 3px; }
@@ -268,7 +283,9 @@ body {
       height: 3px;
       width: 0px;
       background: transparent;
-      transition: width .5s ease, background-color .5s ease; }
+      -webkit-transition: width 0.5s ease, background-color 0.5s ease;
+      -moz-transition: width 0.5s ease, background-color 0.5s ease;
+      transition: width 0.5s ease, background-color 0.5s ease; }
     .header__link:hover:after {
       width: 100%;
       background: #0099CC; }
@@ -282,15 +299,14 @@ body {
     display: inline-block;
     line-height: 110px;
     color: white;
-    transition: color 0.5s ease; }
+    -webkit-transition: color 0.8s ease;
+    -moz-transition: color 0.8s ease;
+    transition: color 0.8s ease; }
     .header__logo:hover {
       color: #0099CC; }
   .header__accented {
     color: #0099CC; }
   .header--fixed {
-    -webkit-transition: background-color 0.3s ease-in-out;
-    -moz-transition: background-color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
     position: fixed;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
     background-color: white; }
