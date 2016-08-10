@@ -1,7 +1,8 @@
 @import '../setup/vars'
 @import '../setup/mixins'
 
-$about-me-section--wrappers-margin-1: 300px
+$about-me-section--wrappers-margin-1: 150px
+$about-me-section--wrappers-margin-2: 50px
 
 .about-me-section
   display: flex
@@ -14,18 +15,33 @@ $about-me-section--wrappers-margin-1: 300px
     flex: 1 1 auto
     flex-flow: column nowrap
     justify-content: space-around
+    @media screen and (max-width: 1024px)
+      margin-right: $about-me-section--wrappers-margin-2
+    @media screen and (max-width: 768px)
+      flex: 1 1 768px
+      margin-right: 0
+      padding: 0 20px 0 20px
+      flex-flow: row nowrap
   +element('image')
     margin-left: auto
     width: 250px
     height: 250px
+    @media screen and (max-width: 768px)
+      margin-left: 0
   +element('text-wrapper')
     justify-content: center
     text-align: center
     margin-left: $about-me-section--wrappers-margin-1
     display: flex
     flex-flow: column nowrap
-    flex: 1 1 600px
+    flex: 1 1 300px
     align-items: center
+    @media screen and (max-width: 1024px)
+      margin-left: $about-me-section--wrappers-margin-2
+    @media screen and (max-width: 768px)
+      flex: 1 1 768px
+      margin-left: 0
+      padding: 0 20px 0 20px
   +element('separator')
     background-image: url(../images/separator.png)
     width: 139px

@@ -429,23 +429,43 @@ body {
   height: 750px;
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.3); }
   .about-me-section__image-wrapper {
-    margin-right: 300px;
+    margin-right: 150px;
     display: flex;
     flex: 1 1 auto;
     flex-flow: column nowrap;
     justify-content: space-around; }
+    @media screen and (max-width: 1024px) {
+      .about-me-section__image-wrapper {
+        margin-right: 50px; } }
+    @media screen and (max-width: 768px) {
+      .about-me-section__image-wrapper {
+        flex: 1 1 768px;
+        margin-right: 0;
+        padding: 0 20px 0 20px;
+        flex-flow: row nowrap; } }
   .about-me-section__image {
     margin-left: auto;
     width: 250px;
     height: 250px; }
+    @media screen and (max-width: 768px) {
+      .about-me-section__image {
+        margin-left: 0; } }
   .about-me-section__text-wrapper {
     justify-content: center;
     text-align: center;
-    margin-left: 300px;
+    margin-left: 150px;
     display: flex;
     flex-flow: column nowrap;
-    flex: 1 1 600px;
+    flex: 1 1 300px;
     align-items: center; }
+    @media screen and (max-width: 1024px) {
+      .about-me-section__text-wrapper {
+        margin-left: 50px; } }
+    @media screen and (max-width: 768px) {
+      .about-me-section__text-wrapper {
+        flex: 1 1 768px;
+        margin-left: 0;
+        padding: 0 20px 0 20px; } }
   .about-me-section__separator {
     background-image: url(../images/separator.png);
     width: 139px;
