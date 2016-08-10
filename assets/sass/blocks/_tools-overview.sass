@@ -2,6 +2,8 @@
 @import '../setup/vars'
 
 $tools-overview--color: white
+$tools-overview--side-margins-1: 50px
+$tools-overview--side-margins-2: 25px
 
 .tools-overview
   background-color: $color__primary
@@ -10,17 +12,22 @@ $tools-overview--color: white
   color: $tools-overview--color
   display: flex
   justify-content: space-around
+  text-align: center
   +element('item')
-    margin-top: 20px
     display: flex
     flex-flow: column nowrap
-    &:nth-child(1)
-      margin-left: 200px
-    &:last-of-type
-      margin-right: 200px
+    justify-content: center
   +element('image')
     height: 100px
     width: auto
     margin: 0 auto
+    @media screen and (max-width: 1024px)
+      height: 80px
+    @media screen and (max-width: 768px)
+      height: 60px
   +element('text')
     margin: 0
+    @media screen and (max-width: 1024px)
+      font-size: $font__size--5
+    @media screen and (max-width: 768px)
+      font-size: $font__size--6  

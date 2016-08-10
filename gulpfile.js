@@ -45,7 +45,7 @@ gulp.task('sass', function(){
   gulp.src(sass_src)
     .on('error', util.log)
     .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('map/'))
     .pipe(gulp.dest(sass_dest));
 });
