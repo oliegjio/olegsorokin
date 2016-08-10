@@ -9,7 +9,8 @@ $(() => {
   let $carousel: JQuery = $('.header-carousel').first();
   let $body: JQuery = $('body');
   let $open_offcanvas: JQuery = $('#open-offcanvas');
-  let $site_overlay: JQuery = $('.site-overlay');
+  let $site_overlay: JQuery = $('.site-overlay').first();
+  let $offcanvas_menu: JQuery = $('.offcanvas-menu').first();
 
   if($body.scrollTop() > 0) {
     $header.addClass('header--fixed');
@@ -47,4 +48,5 @@ $(() => {
   $site_overlay.click(() => {
     $open_offcanvas.removeClass('hamburger--open');
   });
+  
 });

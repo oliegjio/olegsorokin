@@ -10,7 +10,8 @@ System.register([], function(exports_1, context_1) {
                 var $carousel = $('.header-carousel').first();
                 var $body = $('body');
                 var $open_offcanvas = $('#open-offcanvas');
-                var $site_overlay = $('.site-overlay');
+                var $site_overlay = $('.site-overlay').first();
+                var $offcanvas_menu = $('.offcanvas-menu').first();
                 if ($body.scrollTop() > 0) {
                     $header.addClass('header--fixed');
                 }
