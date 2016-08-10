@@ -179,15 +179,23 @@ body {
   line-height: 1.6; }
 
 .pushy {
-  z-index: 999999; }
+  z-index: 999999 !important; }
+
+.site-overlay {
+  background-color: rgba(0, 0, 0, 0.15) !important; }
 
 .offcanvas-menu {
-  background-color: white; }
+  background-color: white;
+  overflow: hidden; }
   .offcanvas-menu ul {
     list-style: none;
-    padding: 0; }
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 0 0 10px;
+    justify-content: center;
+    height: 100%; }
   .offcanvas-menu a {
-    color: black;
+    color: #333333;
     font-weight: bold;
     font-size: 28px;
     font-family: Montserrat; }
@@ -299,9 +307,9 @@ body {
     display: inline-block;
     line-height: 110px;
     color: white;
-    -webkit-transition: color 0.8s ease;
-    -moz-transition: color 0.8s ease;
-    transition: color 0.8s ease; }
+    -webkit-transition: color 0.2s ease;
+    -moz-transition: color 0.2s ease;
+    transition: color 0.2s ease; }
     .header__logo:hover {
       color: #0099CC; }
   .header__accented {
@@ -350,7 +358,7 @@ body {
       @media screen and (max-width: 1024px) {
         .welcome-section__shadow .slick-prev, .welcome-section__shadow .slick-next {
           width: 90px; } }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 425px) {
         .welcome-section__shadow .slick-prev, .welcome-section__shadow .slick-next {
           width: 50px; } }
     .welcome-section__shadow .slick-prev {

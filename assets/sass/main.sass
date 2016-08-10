@@ -17,15 +17,23 @@ body
   line-height: 1.6
 
 .pushy
-  z-index: 999999
+  z-index: 999999 !important
+
+.site-overlay
+  background-color: rgba(0, 0, 0, 0.15) !important
 
 .offcanvas-menu
   background-color: white
+  overflow: hidden
   ul
     list-style: none
-    padding: 0
+    display: flex
+    flex-flow: column nowrap
+    padding: 0 0 0 10px
+    justify-content: center
+    height: 100%
   a
-    color: black 
+    color: $color__text--primary
     font-weight: bold
     font-size: $font__size--3
     font-family: $font__family--primary

@@ -11,9 +11,13 @@ $(() => {
   let $open_offcanvas: JQuery = $('#open-offcanvas');
   let $site_overlay: JQuery = $('.site-overlay');
 
+  if($body.scrollTop() > 0) {
+    $header.addClass('header--fixed');
+  }
+
   $header.scrollspy({
     // min: $header.height() / 2,
-    min: 1, 
+    min: 1,
     max: $body.height(),
     onEnter: (element, position) => {
       $header.addClass('header--fixed');

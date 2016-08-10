@@ -11,6 +11,9 @@ System.register([], function(exports_1, context_1) {
                 var $body = $('body');
                 var $open_offcanvas = $('#open-offcanvas');
                 var $site_overlay = $('.site-overlay');
+                if ($body.scrollTop() > 0) {
+                    $header.addClass('header--fixed');
+                }
                 $header.scrollspy({
                     min: 1,
                     max: $body.height(),
