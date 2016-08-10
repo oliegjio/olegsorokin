@@ -5,9 +5,9 @@ $header--height: 110px
 $header--color: white
 $header--color--fixed: $color__text--primary
 $header--color-accent: $color__primary
-$header--wrappers-padding-1: 200px
-$header--wrappers-padding-2: 100px
-$header--wrappers-padding-3: 30px
+$header--wrappers-margin-1: 200px
+$header--wrappers-margin-2: 100px
+$header--wrappers-margin-3: 30px
 
 $header__logo--color: $header--color
 $header__logo--color-accent: $header--color-accent
@@ -41,20 +41,20 @@ $header__accented--color: $header--color-accent
     display: flex
     flex-flow: row nowrap
     flex: 0 1 500px
-    padding-right: $header--wrappers-padding-1
+    margin-right: $header--wrappers-margin-1
     @media screen and (max-width: 1440px)
-      padding-right: $header--wrappers-padding-2
+      padding-right: $header--wrappers-margin-2
     @media screen and (max-width: 1024px)
-      padding-right: $header--wrappers-padding-3
+      padding-right: $header--wrappers-margin-3
       flex: 0 1 400px
   +element('logo-wrapper')
     flex: 1 1 230px
     flex-flow: row nowrap
-    padding-left: $header--wrappers-padding-1
+    margin-left: $header--wrappers-margin-1
     @media screen and (max-width: 1440px)
-      padding-left: $header--wrappers-padding-2
+      padding-left: $header--wrappers-margin-2
     @media screen and (max-width: 1024px)
-      padding-left: $header--wrappers-padding-3
+      padding-left: $header--wrappers-margin-3
   +element('link')
     flex: 1 1 auto
     color: $header__link--color

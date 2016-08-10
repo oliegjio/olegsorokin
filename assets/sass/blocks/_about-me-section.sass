@@ -1,0 +1,36 @@
+@import '../setup/vars'
+@import '../setup/mixins'
+
+$about-me-section--wrappers-margin-1: 300px
+
+.about-me-section
+  display: flex
+  flex-flow: row wrap
+  height: 750px
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.30)
+  +element('image-wrapper')
+    margin-right: $about-me-section--wrappers-margin-1
+    display: flex
+    flex: 1 1 auto
+    flex-flow: column nowrap
+    justify-content: space-around
+  +element('image')
+    margin-left: auto
+    width: 250px
+    height: 250px
+  +element('text-wrapper')
+    justify-content: center
+    text-align: center
+    margin-left: $about-me-section--wrappers-margin-1
+    display: flex
+    flex-flow: column nowrap
+    flex: 1 1 600px
+    align-items: center
+  +element('separator')
+    background-image: url(../images/separator.png)
+    width: 139px
+    height: 15px
+  +element('header')
+    margin-top: 0
+  +element('paragraph')
+    margin-bottom: 0
