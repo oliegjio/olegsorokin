@@ -9,6 +9,14 @@ html
     link(rel='stylesheet', href='../css/main.css')
     
 body
+  div.pushy.pushy-right.offcanvas-menu
+    ul
+      li
+        a(href='#') Test Menu
+      li
+        a(href='#') Test Menu
+      li
+        a(href='#') Test Menu
   header.header
     div.header__logo-wrapper
       a(href='#').header__logo
@@ -20,18 +28,16 @@ body
       a.header__link(href='#') About
       a.header__link(href='#') Contact
       a.primary-button(href='#') Hire Me
+      div#open-offcanvas.hamburger.menu-btn
+        span.hamburger__item
+        span.hamburger__item
+        span.hamburger__item
+        span.hamburger__item
   div.header-carousel
     div
       img.header-carousel__image(src='../images/background.png')
     div
       img.header-carousel__image(src='../images/nature.png')
-  //- div.welcome-section
-  //-   div.welcome-section-shadow
-  //-     div.container
-  //-       h2 WordPress & jQuery
-  //-       h1 Web Developer
-  //-       p You need amazing web developer? Well, you found it!
-  //-       a.hire-me(href='#') Hire Me
   div.welcome-section 
     div.welcome-section__shadow
       div.welcome-section__wrapper  

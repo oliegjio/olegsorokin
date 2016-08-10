@@ -8,6 +8,7 @@ $(() => {
   let $header: JQuery = $('.header').first();
   let $carousel: JQuery = $('.header-carousel').first();
   let $body: JQuery = $('body');
+  let $open_offcanvas: JQuery = $('#open-offcanvas');
 
   $header.scrollspy({
     min: $header.height() / 2,
@@ -31,5 +32,9 @@ $(() => {
     infinite: true,
     speed: 2500,
     swipe: false
+  });
+
+  $open_offcanvas.click(() => {
+    $open_offcanvas.toggleClass('hamburger--open');
   });
 });

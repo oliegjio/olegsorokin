@@ -168,6 +168,19 @@ p {
   font-size: 18px;
   line-height: 28px; }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 10000px; }
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 1.6; }
+
+.pushy {
+  z-index: 999999; }
+
 .primary-button {
   background-color: #0099CC;
   text-transform: uppercase;
@@ -394,14 +407,62 @@ p {
   .about-me-section__paragraph {
     margin-bottom: 0; }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 10000px; }
-
-body {
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;
-  line-height: 1.6; }
+.hamburger {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  margin: 50px auto;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  cursor: pointer; }
+  .hamburger__item {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background-color: #0099CC;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out; }
+    .hamburger__item:nth-child(1) {
+      top: 0; }
+    .hamburger__item:nth-child(2), .hamburger__item:nth-child(3) {
+      top: 18px; }
+    .hamburger__item:nth-child(4) {
+      top: 36px; }
+  .hamburger--open .hamburger__item:nth-child(1) {
+    width: 0;
+    left: 50%;
+    top: 18px; }
+  .hamburger--open .hamburger__item:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .hamburger--open .hamburger__item:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .hamburger--open .hamburger__item:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%; }
 
 /*# sourceMappingURL=map/main.css.map */

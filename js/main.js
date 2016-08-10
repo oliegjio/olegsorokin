@@ -9,6 +9,7 @@ System.register([], function(exports_1, context_1) {
                 var $header = $('.header').first();
                 var $carousel = $('.header-carousel').first();
                 var $body = $('body');
+                var $open_offcanvas = $('#open-offcanvas');
                 $header.scrollspy({
                     min: $header.height() / 2,
                     max: $body.height(),
@@ -29,6 +30,9 @@ System.register([], function(exports_1, context_1) {
                     infinite: true,
                     speed: 2500,
                     swipe: false
+                });
+                $open_offcanvas.click(function () {
+                    $open_offcanvas.toggleClass('hamburger--open');
                 });
             });
         }
