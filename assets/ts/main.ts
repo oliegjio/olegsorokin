@@ -9,9 +9,11 @@ $(() => {
   let $carousel: JQuery = $('.header-carousel').first();
   let $body: JQuery = $('body');
   let $open_offcanvas: JQuery = $('#open-offcanvas');
+  let $site_overlay: JQuery = $('.site-overlay');
 
   $header.scrollspy({
-    min: $header.height() / 2,
+    // min: $header.height() / 2,
+    min: 1, 
     max: $body.height(),
     onEnter: (element, position) => {
       $header.addClass('header--fixed');
@@ -36,5 +38,9 @@ $(() => {
 
   $open_offcanvas.click(() => {
     $open_offcanvas.toggleClass('hamburger--open');
+  });
+
+  $site_overlay.click(() => {
+    $open_offcanvas.removeClass('hamburger--open');
   });
 });

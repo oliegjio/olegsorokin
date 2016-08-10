@@ -32,29 +32,36 @@ $header__accented--color: $header--color-accent
   flex-flow: row nowrap
   width: 100%
   height: $header--height
-  z-index: 10000
-  transition: background-color 0.5s ease
+  z-index: 1000
+  +transition(transform 0.1s ease-in-out)
   .primary-button
     flex: 0 1 auto
     margin: 25px 0 0 25px
+  .hamburger
+    display: none
+    margin: 33px 35px 0 0
+    @media screen and (max-width: 768px)
+      display: block
   +element('links-wrapper')
     display: flex
     flex-flow: row nowrap
     flex: 0 1 500px
     margin-right: $header--wrappers-margin-1
     @media screen and (max-width: 1440px)
-      padding-right: $header--wrappers-margin-2
+      margin-right: $header--wrappers-margin-2
     @media screen and (max-width: 1024px)
-      padding-right: $header--wrappers-margin-3
+      margin-right: $header--wrappers-margin-3
       flex: 0 1 400px
+    @media screen and (max-width: 768px)
+      display: none
   +element('logo-wrapper')
     flex: 1 1 230px
     flex-flow: row nowrap
     margin-left: $header--wrappers-margin-1
     @media screen and (max-width: 1440px)
-      padding-left: $header--wrappers-margin-2
+      margin-left: $header--wrappers-margin-2
     @media screen and (max-width: 1024px)
-      padding-left: $header--wrappers-margin-3
+      margin-left: $header--wrappers-margin-3
   +element('link')
     flex: 1 1 auto
     color: $header__link--color
@@ -62,7 +69,7 @@ $header__accented--color: $header--color-accent
     font-size: $font__size--5
     text-align: center
     line-height: $header--height
-    transition: color 0.5s ease
+    transition: color 0.2s ease 
     position: relative
     margin-bottom: 3px
     &:hover
@@ -78,24 +85,6 @@ $header__accented--color: $header--color-accent
     &:hover:after
       width: 100%
       background: $header__link--color-accent
-    // &:before
-    //   content: ""
-    //   position: absolute
-    //   border-radius: 3px
-    //   width: 100%
-    //   height: 3px
-    //   bottom: 0
-    //   left: 0
-    //   background-color: $header__link--color-accent
-    //   visibility: hidden
-    //   -webkit-transform: scaleX(0)
-    //   transform: scaleX(0)
-    //   -webkit-transition: all 0.3s ease-in-out 0s
-    //   transition: all 0.3s ease-in-out 0s
-    // &:hover:before
-    //   visibility: visible
-    //   -webkit-transform: scaleX(1)
-    //   transform: scaleX(1)
   +element('logo')
     flex: 0 1 230px
     margin: 0
@@ -112,6 +101,7 @@ $header__accented--color: $header--color-accent
   +element('accented')
     color: $header__accented--color
   +modifier('fixed')
+    +transition(background-color 0.3s ease-in-out)
     position: fixed
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15)
     background-color: white

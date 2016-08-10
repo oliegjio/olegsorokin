@@ -10,8 +10,9 @@ System.register([], function(exports_1, context_1) {
                 var $carousel = $('.header-carousel').first();
                 var $body = $('body');
                 var $open_offcanvas = $('#open-offcanvas');
+                var $site_overlay = $('.site-overlay');
                 $header.scrollspy({
-                    min: $header.height() / 2,
+                    min: 1,
                     max: $body.height(),
                     onEnter: function (element, position) {
                         $header.addClass('header--fixed');
@@ -33,6 +34,9 @@ System.register([], function(exports_1, context_1) {
                 });
                 $open_offcanvas.click(function () {
                     $open_offcanvas.toggleClass('hamburger--open');
+                });
+                $site_overlay.click(function () {
+                    $open_offcanvas.removeClass('hamburger--open');
                 });
             });
         }
