@@ -39,6 +39,8 @@ $header__accented--color: $header--color-accent
     margin: 33px 35px 0 0
     @media screen and (max-width: 768px)
       display: block
+  .hamburger__item
+    background-color: white
   +element('links-wrapper')
     display: flex
     flex-flow: row nowrap
@@ -101,6 +103,8 @@ $header__accented--color: $header--color-accent
     position: fixed
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15)
     background-color: white
+    .hamburger__item
+      background-color: $color__primary 
     .header__link
       color: $header__link--color--fixed
       &:hover

@@ -245,6 +245,8 @@ body {
     @media screen and (max-width: 768px) {
       .header .hamburger {
         display: block; } }
+  .header .hamburger__item {
+    background-color: white; }
   .header__links-wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -318,6 +320,8 @@ body {
     position: fixed;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
     background-color: white; }
+    .header--fixed .hamburger__item {
+      background-color: #0099CC; }
     .header--fixed .header__link {
       color: #333333; }
       .header--fixed .header__link:hover {
