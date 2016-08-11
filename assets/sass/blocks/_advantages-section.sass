@@ -1,0 +1,63 @@
+@import '../setup/mixins'
+@import '../setup/vars'
+
+.advantages-section
+  text-align: center
+  padding: 80px 0
+  box-shadow: 0 -20px 80px 0 rgba(0, 0, 0, 0.30)
+  color: $color__text--primary
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  @media screen and (max-width: 425px)
+    padding: 50px 0
+  +element('header')
+    margin-top: 0
+  +element('advantage-wrapper')
+    display: flex
+    flex-flow: row nowrap
+    margin: 40px 100px
+    +modifier('1')
+      justify-content: flex-start
+    +modifier('2')
+      justify-content: center
+    +modifier('3')
+      justify-content: flex-end
+    @media screen and (max-width: 425px)
+      margin: 40px 20px
+  +element('advantage')
+    flex: 0 1 600px
+    display: flex
+    flex-flow: row nowrap
+    @media screen and (max-width: 425px)
+      flex-flow: column wrap
+  +element('icon-wrapper')
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    @media screen and (max-width: 425px)
+      flex-flow: row
+      margin-bottom: 15px
+  +element('icon')
+    display: block
+    font-size: 60px
+    background-color: $color__primary
+    color: white
+    padding: 20px 20px 20px 24px
+    width: 80px
+    height: 80px
+    line-height: 80px
+    border-radius: 80px
+  +element('text-wrapper')
+    text-align: left
+    margin-left: 20px
+    @media screen and (max-width: 425px)
+      margin-left: 0
+  +element('paragraph')
+    margin: 0
+    @media screen and (max-width: 425px)
+      text-align: center
+  +element('sub-header')
+    margin: 0 0 10px 0
+    @media screen and (max-width: 425px)
+      text-align: center
