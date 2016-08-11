@@ -37,11 +37,18 @@ $header__accented--color: $header--color-accent
     display: none
   .hamburger
     display: none
-    margin: 33px 35px 0 0
+    margin-right: 33px
     @media screen and (max-width: 768px)
       display: block
+    @media screen and (max-width: 425px)
+      display: block
+      margin-right: 20px
   .hamburger__item
     background-color: white
+  +element('hamburger-wrapper')
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
   +element('links-wrapper')
     display: flex
     flex-flow: row nowrap
@@ -98,6 +105,8 @@ $header__accented--color: $header--color-accent
     +transition(color 0.2s ease)
     &:hover
       color: $header__logo--color-accent
+    @media screen and (max-width: 425px)
+      font-size: $font__size--3
   +element('accented')
     color: $header__accented--color
   +modifier('fixed')

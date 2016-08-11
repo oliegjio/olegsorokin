@@ -17,6 +17,8 @@ $tools-overview--side-margins-2: 25px
     display: flex
     flex-flow: column nowrap
     justify-content: center
+    @media screen and (max-width: 425px)
+      flex: 0 1 100px
   +element('image')
     height: 100px
     width: auto
@@ -24,10 +26,10 @@ $tools-overview--side-margins-2: 25px
     @media screen and (max-width: 1024px)
       height: 80px
     @media screen and (max-width: 768px)
-      height: 60px
+      height: 50px
   +element('text')
     margin: 0
     @media screen and (max-width: 1024px)
       font-size: $font__size--5
     @media screen and (max-width: 768px)
-      font-size: $font__size--6  
+      font-size: $font__size--6
