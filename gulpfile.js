@@ -40,6 +40,19 @@ gulp.task('jade', function(){
     .pipe(gulp.dest(jade_dest));
 });
 
+var css_src = [
+  'bower_components/PACE/themes/blue/pace-theme-center-radar.css',
+  'css/main.css'
+];
+var css_dest = 'css/';
+gulp.task('css', function(){
+  gulp.src(css_src)
+    .on('error', util.log)
+    .pipe(concat('all.css'))
+    .pipe(uglifycss())
+    .pipe(gulp.dest(css_dest));
+});
+
 var js_src = [
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/flexibility/flexibility.js',
@@ -88,13 +101,14 @@ gulp.task('ts', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(sass_src, ['sass']);
+  gulp.watch(sass_src, ['sass', 'css']);
   gulp.watch(ts_src, ['ts']);
   gulp.watch(jade_src, ['jade']);
 });
 
 var tasks = [
   'sass',
+  'css',
   'ts',
   'jade',
   'watch'
