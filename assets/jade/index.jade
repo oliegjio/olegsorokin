@@ -1,3 +1,5 @@
+- ob_start("ob_gzhandler"); 
+
 doctype html
 html
   head
@@ -89,3 +91,5 @@ body
       defaultJSExtensions: true
     });
     SystemJS.import('main.js');
+
+- ob_flush();
