@@ -179,7 +179,7 @@ body {
   line-height: 1.6; }
 
 .pushy {
-  z-index: 9999 !important;
+  z-index: 10010 !important;
   height: 100vh; }
 
 .site-overlay {
