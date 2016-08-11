@@ -1,6 +1,7 @@
 ///<reference path="typings/globals/jquery/index.d.ts"/>
 ///<reference path="typings/globals/slick-carousel/index.d.ts"/>
 ///<reference path="d.ts/jquery-scrollspy.d.ts"/>
+///<reference path="d.ts/pace.d.ts" />
 import * as Test from './test';
 
 $(() => {
@@ -11,13 +12,17 @@ $(() => {
   let $open_offcanvas: JQuery = $('#open-offcanvas');
   let $site_overlay: JQuery = $('.site-overlay').first();
   let $offcanvas_menu: JQuery = $('.offcanvas-menu').first();
+  let $pace_overlay: JQuery = $('.pace-overlay').first();
 
   if($body.scrollTop() > 0) {
     $header.addClass('header--fixed');
   }
 
+  Pace.on("done", () => {
+    $pace_overlay.css({'visibility': 'hidden', 'opacity': '0'});
+  });
+
   $header.scrollspy({
-    // min: $header.height() / 2,
     min: 1,
     max: $body.height(),
     onEnter: (element, position) => {
@@ -48,5 +53,5 @@ $(() => {
   $site_overlay.click(() => {
     $open_offcanvas.removeClass('hamburger--open');
   });
-  
+
 });

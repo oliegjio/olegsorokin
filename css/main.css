@@ -179,7 +179,7 @@ body {
   line-height: 1.6; }
 
 .pushy {
-  z-index: 999999 !important; }
+  z-index: 9999 !important; }
 
 .site-overlay {
   background-color: rgba(0, 0, 0, 0.15) !important; }
@@ -201,6 +201,23 @@ body {
     font-family: Montserrat; }
     .offcanvas-menu a:hover {
       color: #0099CC; }
+
+.pace {
+  z-index: 99999; }
+
+.pace-overlay {
+  -webkit-transition: visibility 0s linear 2s, opacity 2s ease;
+  -moz-transition: visibility 0s linear 2s, opacity 2s ease;
+  transition: visibility 0s linear 2s, opacity 2s ease;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+  z-index: 99989;
+  background-color: white; }
 
 .primary-button {
   background-color: #0099CC;
