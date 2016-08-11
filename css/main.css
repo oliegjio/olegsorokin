@@ -179,7 +179,8 @@ body {
   line-height: 1.6; }
 
 .pushy {
-  z-index: 9999 !important; }
+  z-index: 9999 !important;
+  height: 100vh; }
 
 .site-overlay {
   background-color: rgba(0, 0, 0, 0.15) !important; }
