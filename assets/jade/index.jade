@@ -11,6 +11,22 @@ html
     script(src='../bower_components/PACE/pace.min.js')
     
 body
+  div.pace-overlay
+  script.
+    var pace_overlay = document.getElementsByClassName('pace-overlay')[0];
+    
+    Pace.on("start", function(){
+      pace_overlay.style.visibility = 'visible';
+      pace_overlay.style.opacity = '1';
+    });
+
+    Pace.on("done", function(){
+      pace_overlay.style.transition = 'visibility 0s linear 1s, opacity 1s ease';
+      pace_overlay.style.opacity = '0';
+      pace_overlay.style.visibility = 'hidden';
+    });
+    
+    Pace.start()
   header.header.push
     div.header__logo-wrapper
       a(href='#').header__logo
@@ -28,7 +44,6 @@ body
         span.hamburger__item
         span.hamburger__item
         span.hamburger__item
-  div.pace-overlay
   div.pushy.pushy-right.offcanvas-menu
     ul
       li

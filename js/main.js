@@ -6,13 +6,9 @@ $(function () {
     var $open_offcanvas = $('#open-offcanvas');
     var $site_overlay = $('.site-overlay').first();
     var $offcanvas_menu = $('.offcanvas-menu').first();
-    var $pace_overlay = $('.pace-overlay').first();
     if ($body.scrollTop() > 0) {
         $header.addClass('header--fixed');
     }
-    Pace.on("done", function () {
-        $pace_overlay.css({ 'visibility': 'hidden', 'opacity': '0' });
-    });
     $header.scrollspy({
         min: 1,
         max: $body.height(),

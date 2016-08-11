@@ -11,15 +11,19 @@ $(() => {
   let $open_offcanvas: JQuery = $('#open-offcanvas');
   let $site_overlay: JQuery = $('.site-overlay').first();
   let $offcanvas_menu: JQuery = $('.offcanvas-menu').first();
-  let $pace_overlay: JQuery = $('.pace-overlay').first();
+  // let $pace_overlay: JQuery = $('.pace-overlay').first();
 
   if($body.scrollTop() > 0) {
     $header.addClass('header--fixed');
   }
 
-  Pace.on("done", () => {
-    $pace_overlay.css({'visibility': 'hidden', 'opacity': '0'});
-  });
+  // Pace.on("start", () => {
+  //   $pace_overlay.css({'visibility': 'visible', 'opacity': '1'});
+  // });
+  //
+  // Pace.on("done", () => {
+  //   $pace_overlay.css({'visibility': 'hidden', 'opacity': '0', 'transition': 'visibility 0s linear 1s, opacity 1s ease'});
+  // });
 
   $header.scrollspy({
     min: 1,
