@@ -404,9 +404,15 @@ body {
     .welcome-section__shadow .slick-prev {
       left: 0;
       box-shadow: inset 20px 0 20px 0 rgba(0, 0, 0, 0.3); }
+      @media screen and (max-width: 425px) {
+        .welcome-section__shadow .slick-prev {
+          box-shadow: none; } }
     .welcome-section__shadow .slick-next {
       right: 0;
       box-shadow: inset -20px 0 20px 0 rgba(0, 0, 0, 0.3); }
+      @media screen and (max-width: 425px) {
+        .welcome-section__shadow .slick-next {
+          box-shadow: none; } }
   .welcome-section__wrapper {
     padding-top: 300px;
     margin: 0 auto;

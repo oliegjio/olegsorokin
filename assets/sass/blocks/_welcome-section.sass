@@ -29,9 +29,13 @@
     .slick-prev
       left: 0
       box-shadow: inset 20px 0 20px 0  rgba(0, 0, 0, 0.30)
+      @media screen and (max-width: 425px)
+        box-shadow: none
     .slick-next
       right: 0
       box-shadow: inset -20px 0 20px 0  rgba(0, 0, 0, 0.30)
+      @media screen and (max-width: 425px)
+        box-shadow: none
   +element('wrapper')
     padding-top: 300px
     margin: 0 auto
