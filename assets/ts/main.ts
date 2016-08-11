@@ -2,7 +2,6 @@
 ///<reference path="typings/globals/slick-carousel/index.d.ts"/>
 ///<reference path="d.ts/jquery-scrollspy.d.ts"/>
 ///<reference path="d.ts/pace.d.ts" />
-import * as Test from './test';
 
 $(() => {
   let $welcome_section_shadow: JQuery = $('.welcome-section__shadow').first();

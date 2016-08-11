@@ -5,6 +5,9 @@ var util = require('gulp-util');
 var jade = require('gulp-jade-php');
 var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
+var uglifycss = require('gulp-uglifycss');
+var concat = require('gulp-concat');
 
 var excluded = [
   'node_modules',
@@ -37,6 +40,24 @@ gulp.task('jade', function(){
     .pipe(gulp.dest(jade_dest));
 });
 
+var js_src = [
+  'bower_components/jquery/dist/jquery.min.js',
+  'bower_components/flexibility/flexibility.js',
+  'bower_components/jquery-scrollspy/jquery-scrollspy.js',
+  'bower_components/parallax.js/parallax.min.js',
+  'bower_components/pushy/js/pushy.min.js',
+  'bower_components/slick-carousel/slick/slick.min.js',
+  'bower_components/system.js/dist/system.js'
+];
+var js_dest = 'js/';
+gulp.task('js', function(){
+  gulp.src(js_src)
+    .on('error', util.log)
+    .pipe(concat('lib.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(js_dest));
+});
+
 var sass_src = exclude([
   'assets/sass/**/*.sass'
 ]);
@@ -47,6 +68,7 @@ gulp.task('sass', function(){
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('map/'))
+    .pipe(uglifycss())
     .pipe(gulp.dest(sass_dest));
 });
 
@@ -61,6 +83,7 @@ gulp.task('ts', function(){
 
   return tsResult.js
     .pipe(sourcemaps.write('map/'))
+    // .pipe(uglify())
     .pipe(gulp.dest(ts_dest));
 });
 
