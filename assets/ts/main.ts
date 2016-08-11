@@ -18,7 +18,7 @@ $(() => {
     $header.addClass('header--fixed');
   }
 
-  $parallax_break.parallax({imageSrc: '../images/future/sky2_1.jpg'});
+  $parallax_break.parallax({imageSrc: '../images/future/sky2_1.jpg', androidFix: false});
 
   $header.scrollspy({
     min: 1,
