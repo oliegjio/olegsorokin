@@ -101,7 +101,8 @@ gulp.task('ts', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(sass_src, ['sass', 'css']);
+  gulp.watch(sass_src, ['sass']);
+  gulp.watch(css_src, ['css'])
   gulp.watch(ts_src, ['ts']);
   gulp.watch(jade_src, ['jade']);
 });

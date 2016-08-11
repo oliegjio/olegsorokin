@@ -6,9 +6,11 @@ $(function () {
     var $open_offcanvas = $('#open-offcanvas');
     var $site_overlay = $('.site-overlay').first();
     var $offcanvas_menu = $('.offcanvas-menu').first();
+    var $parallax_break = $('.parallax-break');
     if ($body.scrollTop() > 0) {
         $header.addClass('header--fixed');
     }
+    $parallax_break.parallax({ imageSrc: '../images/future/sky2_1.jpg' });
     $header.scrollspy({
         min: 1,
         max: $body.height(),

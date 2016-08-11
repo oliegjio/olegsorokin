@@ -2,6 +2,7 @@
 ///<reference path="typings/globals/slick-carousel/index.d.ts"/>
 ///<reference path="d.ts/jquery-scrollspy.d.ts"/>
 ///<reference path="d.ts/pace.d.ts" />
+///<reference path="d.ts/parallax.d.ts" />
 
 $(() => {
   let $welcome_section_shadow: JQuery = $('.welcome-section__shadow').first();
@@ -11,19 +12,13 @@ $(() => {
   let $open_offcanvas: JQuery = $('#open-offcanvas');
   let $site_overlay: JQuery = $('.site-overlay').first();
   let $offcanvas_menu: JQuery = $('.offcanvas-menu').first();
-  // let $pace_overlay: JQuery = $('.pace-overlay').first();
+  let $parallax_break: JQuery = $('.parallax-break');
 
   if($body.scrollTop() > 0) {
     $header.addClass('header--fixed');
   }
 
-  // Pace.on("start", () => {
-  //   $pace_overlay.css({'visibility': 'visible', 'opacity': '1'});
-  // });
-  //
-  // Pace.on("done", () => {
-  //   $pace_overlay.css({'visibility': 'hidden', 'opacity': '0', 'transition': 'visibility 0s linear 1s, opacity 1s ease'});
-  // });
+  $parallax_break.parallax({imageSrc: '../images/future/sky2_1.jpg'});
 
   $header.scrollspy({
     min: 1,
