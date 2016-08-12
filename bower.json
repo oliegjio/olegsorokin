@@ -29,6 +29,7 @@
     "parallax.js": "^1.4.2",
     "slick-carousel": "^1.6.0",
     "pushy": "^1.0.0",
-    "PACE": "pace#^1.0.2"
+    "PACE": "pace#^1.0.2",
+    "components-font-awesome": "^4.6.3"
   }
 }
