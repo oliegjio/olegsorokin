@@ -60,13 +60,14 @@ var js_src = [
   'bower_components/parallax.js/parallax.min.js',
   'bower_components/pushy/js/pushy.min.js',
   'bower_components/slick-carousel/slick/slick.min.js',
+  'bower_components/progressbar.js/dist/progressbar.min.js',
   'bower_components/system.js/dist/system.js'
 ];
 var js_dest = 'js/';
 gulp.task('js', function(){
   gulp.src(js_src)
-    .on('error', util.log)
     .pipe(concat('lib.js'))
+    .on('error', util.log)
     .pipe(uglify())
     .pipe(gulp.dest(js_dest));
 });

@@ -1,0 +1,67 @@
+@import '../setup/mixins'
+@import '../setup/vars'
+
+.skills-section
+  background-color: $color__secondary
+  display: flex
+  flex-flow: column wrap
+  padding: 150px
+  color: $color__text--primary
+  max-width: 100%
+  @media screen and (max-width: 1440px)
+    padding: 150px 80px
+  @media screen and (max-width: 768px)
+    padding: 100px 50px
+  @media screen and (max-width: 425px)
+    padding: 100px 20px
+  +element('header')
+    text-transform: uppercase
+    flex: 1 1 auto
+    margin-top: 0
+  +element('wrapper')
+    display: flex
+    max-width: 100%
+    flex-flow: row nowrap
+    @media screen and (max-width: 1024px)
+        flex-flow: column nowrap
+  +element('skills-wrapper')
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+  +element('image-wrapper')
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    max-width: 100%
+    @media screen and (max-width: 1024px)
+      margin-top: 100px
+    @media screen and (max-width: 425px)
+      margin-top: 70px
+  +element('paragraph')
+    color: #5B5C5D
+    margin-bottom: 35px
+  +element('skill')
+    display: flex
+    flex-flow: column nowrap
+    margin: 30px 0
+  +element('skill-header')
+    margin: 0
+    flex: 1 1 auto
+    display: block
+  +element('progress-percent')
+    +transition(all 2.5s ease)
+    margin: 0
+    position: absolute
+    left: 0
+    top: -40px
+    color: #5B5C5D
+    font-size: $font__size--3
+  +element('progress-bar')
+    height: 20px
+  +element('image')
+    max-width: 100%
+    height: auto
+  +element('skill-text-wrapper')
+    display: flex
+    flex-flow: row nowrap
+  +element('progress-bar-wrapper')
