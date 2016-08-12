@@ -14,32 +14,33 @@ $(() => {
   let $siteOverlay: JQuery = $('.site-overlay').first();
   let $offcanvasMenu: JQuery = $('.offcanvas-menu').first();
   let $parallaxBreak: JQuery = $('.parallax-break');
-
-  if($body.scrollTop() > 0) {
-    $header.addClass('header--fixed');
-  }
-
   let $progressBars: JQuery = $('.skills-section__progress-bar');
-  let $progressBarsLabels: JQuery = $('.skills-section__progress-percent');
-  let progressBarsPercentages: Array<number> = [];
+  let activatedProgressBars: Array<boolean> = [false, false, false, false];
 
   for(let i = 0; i < $progressBars.length; i++) {
-    progressBarsPercentages[i] = parseInt($progressBarsLabels[i].innerHTML.replace('%', ''));
-    let progress: number = 30;
+    let $progressBar = $($progressBars[i]);
+    $progressBar.scrollspy({
+      min: $progressBar.offset().top - $(window).innerHeight(),
+      max: $body.height(),
+      onEnter: () => {
+        if(activatedProgressBars[i] === true) return;
 
-    let interval: number = setInterval(() => {
-      let progressBar = $($progressBars[i]);
-      let label = $($progressBarsLabels[i]);
+        let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
+        let progress: number = 40;
 
-      progressBar.css('width', progress + '%');
+        let interval: number = setInterval(() => {
+          $progressBar.css('width', progress + '%');
 
-      progress += 0.5;
-      console.log(progress);
+          progress += 0.5;
 
-      if(progress === progressBarsPercentages[i]) {
-        clearInterval(interval);
+          if(progress === percentage) {
+            clearInterval(interval);
+          }
+        }, 10);
+
+        activatedProgressBars[i] = true;
       }
-    }, 10);
+    });
   }
 
   $parallaxBreak.parallax({imageSrc: '../images/future/sky2_1.jpg'});
@@ -76,4 +77,5 @@ $(() => {
     $openOffcanvas.removeClass('hamburger--open');
   });
 
+  $(window).scroll();
 });

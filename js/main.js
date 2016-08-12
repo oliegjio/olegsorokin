@@ -7,25 +7,28 @@ $(function () {
     var $siteOverlay = $('.site-overlay').first();
     var $offcanvasMenu = $('.offcanvas-menu').first();
     var $parallaxBreak = $('.parallax-break');
-    if ($body.scrollTop() > 0) {
-        $header.addClass('header--fixed');
-    }
     var $progressBars = $('.skills-section__progress-bar');
-    var $progressBarsLabels = $('.skills-section__progress-percent');
-    var progressBarsPercentages = [];
+    var activatedProgressBars = [false, false, false, false];
     var _loop_1 = function(i) {
-        progressBarsPercentages[i] = parseInt($progressBarsLabels[i].innerHTML.replace('%', ''));
-        var progress = 30;
-        var interval = setInterval(function () {
-            var progressBar = $($progressBars[i]);
-            var label = $($progressBarsLabels[i]);
-            progressBar.css('width', progress + '%');
-            progress += 0.5;
-            console.log(progress);
-            if (progress === progressBarsPercentages[i]) {
-                clearInterval(interval);
+        var $progressBar = $($progressBars[i]);
+        $progressBar.scrollspy({
+            min: $progressBar.offset().top - $(window).innerHeight(),
+            max: $body.height(),
+            onEnter: function () {
+                if (activatedProgressBars[i] === true)
+                    return;
+                var percentage = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
+                var progress = 40;
+                var interval = setInterval(function () {
+                    $progressBar.css('width', progress + '%');
+                    progress += 0.5;
+                    if (progress === percentage) {
+                        clearInterval(interval);
+                    }
+                }, 10);
+                activatedProgressBars[i] = true;
             }
-        }, 10);
+        });
     };
     for (var i = 0; i < $progressBars.length; i++) {
         _loop_1(i);
@@ -58,6 +61,7 @@ $(function () {
     $siteOverlay.click(function () {
         $openOffcanvas.removeClass('hamburger--open');
     });
+    $(window).scroll();
 });
 
 //# sourceMappingURL=map/main.js.map
