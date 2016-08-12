@@ -52,12 +52,21 @@
     +transition(all 2.5s ease)
     margin: 0
     position: absolute
-    left: 0
-    top: -40px
+    // left: 0
+    top: -32px
+    //
+    right: 0  
+    //
     color: #5B5C5D
     font-size: $font__size--3
   +element('progress-bar')
     height: 20px
+    //
+    background-color: $color__primary
+    position: relative
+    width: 0
+    border-radius: 10px
+    //
   +element('image')
     max-width: 100%
     height: auto
