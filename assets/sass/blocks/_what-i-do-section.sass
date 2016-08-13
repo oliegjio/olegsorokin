@@ -1,0 +1,53 @@
+@import '../setup/mixins'
+@import '../setup/vars'
+
+.what-i-do-section
+  color: white
+  text-align: center
+  width: 100%
+  .slick-prev, .slick-next
+    position: absolute
+    width: 140px
+    height: 100% !important
+    &::before
+      font-size: 40px
+    @media screen and (max-width: 768px)
+      width: 50px
+    @media screen and (max-width: 375px)
+      width: 35px
+      &:before
+        font-size: 30px
+  .slick-prev
+    left: 0
+  .slick-next
+    right: 0
+  +element('parallax')
+    max-width: 100%
+  +element('header')
+    text-transform: uppercase
+  +element('carousel')
+  +element('item')
+    background-color: rgba(194, 255, 251, 0.3)
+    border-radius: 20px
+    margin: 50px 40px
+    padding: 30px 20px
+    display: flex
+    flex-flow: column nowrap
+    @media screen and (max-width: 375px)
+      margin: 50px 20px
+      padding: 30px 10px
+  +element('icon')
+    display: block
+    &:before
+      font-size: 80px
+  +element('item-header')
+    text-transform: uppercase
+  +element('paragraph')
+  +element('content-wrapper')
+    position: relative
+    padding: 100px 100px
+    max-width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.15)
+    @media screen and (max-width: 768px)
+      padding: 100px 20px

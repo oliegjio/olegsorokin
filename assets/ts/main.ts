@@ -8,7 +8,7 @@
 $(() => {
   let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first();
   let $header: JQuery = $('.header').first();
-  let $carousel: JQuery = $('.header-carousel').first();
+  let $headerCarousel: JQuery = $('.header-carousel').first();
   let $body: JQuery = $('body');
   let $openOffcanvas: JQuery = $('#open-offcanvas');
   let $siteOverlay: JQuery = $('.site-overlay').first();
@@ -16,6 +16,9 @@ $(() => {
   let $parallaxBreak: JQuery = $('.parallax-break');
   let $progressBars: JQuery = $('.skills-section__progress-bar');
   let activatedProgressBars: Array<boolean> = [false, false, false, false];
+  let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
+  let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
+  let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
 
   for(let i = 0; i < $progressBars.length; i++) {
     let $progressBar = $($progressBars[i]);
@@ -43,7 +46,9 @@ $(() => {
     });
   }
 
-  $parallaxBreak.parallax({imageSrc: '../images/future/sky2_1.jpg'});
+  $parallaxBreak.parallax({imageSrc: '../images/sky1.jpg'});
+
+  $whatIDoSectionParallax.parallax({imageSrc: '../images/sky2.jpg'});
 
   $header.scrollspy({
     min: 1,
@@ -58,7 +63,7 @@ $(() => {
     }
   });
 
-  $carousel.slick({
+  $headerCarousel.slick({
     // autoplay: true,
     appendArrows: $welcomeSectionShadow,
     autoplaySpeed: 2000,
@@ -67,6 +72,30 @@ $(() => {
     infinite: true,
     speed: 2500,
     swipe: false
+  });
+
+  $whatIDoSectionCarousel.slick({
+    appendArrows: $whatIDoSectionContentWrapper,
+    infinite: true,
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   });
 
   $openOffcanvas.click(() => {
