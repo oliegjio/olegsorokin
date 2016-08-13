@@ -1,0 +1,59 @@
+@import '../setup/vars'
+@import '../setup/mixins'
+
+.contact-me-section
+  padding: 100px 200px
+  text-align: center
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  @media screen and (max-width: 1024px)
+    padding: 100px 80px
+  @media screen and (max-width: 768px)
+    padding: 100px 20px
+  @media screen and (max-width: 425px)
+    padding: 60px 20px
+  .primary-button
+    width: 100px
+    margin: 0 auto
+  +element('header-wrapper')
+    color: $color__text--primary
+    margin-bottom: 80px
+    @media screen and (max-width: 425px)
+      margin-bottom: 50px
+  +element('header')
+    text-transform: uppercase
+  +element('separator')
+  +element('paragraph')
+    color: $color__text--secondary
+  +element('form')
+    display: flex
+    flex-flow: column nowrap
+    flex: 1 1 auto
+    width: 700px
+    @media screen and (max-width: 768px)
+      width: 100%
+  +element('name')
+    border: none
+    border-bottom: 2px solid $color__primary
+    height: 30px
+    color: $color__text--secondary
+    line-height: 30px
+  +element('email')
+    border: none
+    border-bottom: 2px solid $color__primary
+    height: 30px
+    color: $color__text--secondary
+    line-height: 30px
+  +element('textarea')
+    color: $color__text--secondary
+    margin-top: 30px
+    padding: 8px
+    border: 2px solid $color__primary
+    height: 150px
+  +element('submit')
+  +element('input')
+    outline: none
+    font-size: $font__size--4
+    margin-bottom: 70px
+    text-align: center
