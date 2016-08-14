@@ -12,6 +12,22 @@ $(function () {
     var $whatIDoSectionParallax = $('.what-i-do-section__parallax');
     var $whatIDoSectionCarousel = $('.what-i-do-section__carousel');
     var $whatIDoSectionContentWrapper = $('.what-i-do-section__content-wrapper');
+    var $headerAboutLink = $('.header__about-link');
+    var $headerContactLink = $('.header__contact-link');
+    var $aboutMeSection = $('.about-me-section');
+    var $contactMeSection = $('.contact-me-section');
+    $headerAboutLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
+        }, 700);
+    });
+    $headerContactLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
+        }, 700);
+    });
     var _loop_1 = function(i) {
         var $progressBar = $($progressBars[i]);
         $progressBar.scrollspy({

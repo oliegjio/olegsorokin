@@ -19,6 +19,26 @@ $(() => {
   let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
   let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
   let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
+  let $headerAboutLink: JQuery = $('.header__about-link');
+  let $headerContactLink: JQuery = $('.header__contact-link');
+  let $aboutMeSection: JQuery = $('.about-me-section');
+  let $contactMeSection: JQuery = $('.contact-me-section');
+
+  $headerAboutLink.click((event) => {
+    event.preventDefault()
+
+    $('html body').animate({
+      scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
+    }, 700);
+  });
+
+  $headerContactLink.click((event) => {
+    event.preventDefault();
+
+    $('html body').animate({
+      scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
+    }, 700);
+  });
 
   for(let i = 0; i < $progressBars.length; i++) {
     let $progressBar = $($progressBars[i]);
