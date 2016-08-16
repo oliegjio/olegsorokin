@@ -31,7 +31,7 @@ $(function () {
     var _loop_1 = function(i) {
         var $progressBar = $($progressBars[i]);
         $progressBar.scrollspy({
-            min: $progressBar.offset().top - $(window).innerHeight(),
+            min: $progressBar.offset().top - $(window).innerHeight() - 150,
             max: $body.height(),
             onEnter: function () {
                 if (activatedProgressBars[i] === true)
@@ -67,8 +67,9 @@ $(function () {
         }
     });
     $headerCarousel.slick({
+        autoplay: true,
         appendArrows: $welcomeSectionShadow,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 5000,
         arrows: true,
         fade: true,
         infinite: true,
@@ -81,6 +82,7 @@ $(function () {
         arrows: true,
         slidesToShow: 3,
         slidesToScroll: 3,
+        swipe: false,
         responsive: [
             {
                 breakpoint: 1440,

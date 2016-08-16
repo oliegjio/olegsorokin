@@ -7,7 +7,7 @@
   display: flex
   flex-flow: column nowrap
   align-items: center
-  background-color: $color__secondary
+  // background-color: $color__secondary
   @media screen and (max-width: 1024px)
     padding: 100px 80px
   @media screen and (max-width: 768px)
@@ -17,6 +17,8 @@
   .primary-button
     width: 100px
     margin: 0 auto
+  +element('profile-link')
+    color: $color__primary
   +element('header-wrapper')
     color: $color__text--primary
     margin-bottom: 80px
@@ -40,16 +42,16 @@
     height: 30px
     color: $color__text--secondary
     line-height: 30px
-    background-color: $color__secondary 
+    // background-color: $color__secondary
   +element('email')
     border: none
     border-bottom: 2px solid $color__primary
     height: 30px
     color: $color__text--secondary
     line-height: 30px
-    background-color: $color__secondary
+    // background-color: $color__secondary
   +element('textarea')
-    background-color: $color__secondary
+    // background-color: $color__secondary
     resize: none
     color: $color__text--secondary
     margin-top: 30px

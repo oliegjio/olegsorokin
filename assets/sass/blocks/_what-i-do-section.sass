@@ -27,12 +27,17 @@
     text-transform: uppercase
   +element('carousel')
   +element('item')
-    background-color: rgba(194, 255, 251, 0.3)
-    border-radius: 20px
+    // background-color: rgba(194, 255, 251, 0.3)
+    // background-color: rgba(0, 153, 204, 1)
+    background-color: white
+    // border-radius: 20px
+    color: #0180b0
+    border-radius: 10px
     margin: 50px 40px
     padding: 30px 20px
     display: flex
     flex-flow: column nowrap
+    outline: none
     @media screen and (max-width: 375px)
       margin: 50px 20px
       padding: 30px 10px
@@ -41,7 +46,7 @@
     &:before
       font-size: 80px
   +element('item-header')
-    text-transform: uppercase
+    // text-transform: uppercase
   +element('paragraph')
   +element('content-wrapper')
     position: relative
