@@ -67,17 +67,21 @@ $(() => {
     });
   }
 
-  for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
-    let $advantage = $($advantagesSectionAdvantage[i]);
-    $advantage.scrollspy({
-      min: $advantage.offset().top - $(window).innerHeight(),
-      max: $body.height(),
-      onEnter: () => {
-        if($advantage.hasClass('animated')) return;
+  if(screen.width > 768) animateAdvantagesItems();
 
-        $advantage.addClass('animated').addClass('bounceInLeft');
-      }
-    });
+  function animateAdvantagesItems() {
+    for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
+      let $advantage = $($advantagesSectionAdvantage[i]);
+      $advantage.scrollspy({
+        min: $advantage.offset().top - $(window).innerHeight(),
+        max: $body.height(),
+        onEnter: () => {
+          if($advantage.hasClass('animated')) return;
+
+          $advantage.addClass('animated').addClass('bounceInLeft');
+        }
+      });
+    }
   }
 
   $parallaxBreak.parallax({imageSrc: '../images/sky1.jpg'});
@@ -98,7 +102,7 @@ $(() => {
   });
 
   $headerCarousel.slick({
-    autoplay: true,
+    // autoplay: true,
     appendArrows: $welcomeSectionShadow,
     autoplaySpeed: 5000,
     arrows: true,
