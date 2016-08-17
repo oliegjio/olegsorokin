@@ -42,6 +42,7 @@ gulp.task('jade', function(){
 
 var css_src = [
   'bower_components/PACE/themes/blue/pace-theme-center-radar.css',
+  'bower_components/animate.css/animate.min.css',
   'css/main.css'
 ];
 var css_dest = 'css/';

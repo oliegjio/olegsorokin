@@ -23,6 +23,7 @@ $(() => {
   let $headerContactLink: JQuery = $('.header__contact-link');
   let $aboutMeSection: JQuery = $('.about-me-section');
   let $contactMeSection: JQuery = $('.contact-me-section');
+  let $advantagesSectionAdvantage: JQuery = $('.advantages-section__advantage');
 
   $headerAboutLink.click((event) => {
     event.preventDefault()
@@ -62,6 +63,19 @@ $(() => {
         }, 10);
 
         activatedProgressBars[i] = true;
+      }
+    });
+  }
+
+  for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
+    let $advantage = $($advantagesSectionAdvantage[i]);
+    $advantage.scrollspy({
+      min: $advantage.offset().top - $(window).innerHeight(),
+      max: $body.height(),
+      onEnter: () => {
+        if($advantage.hasClass('animated')) return;
+
+        $advantage.addClass('animated').addClass('bounceInLeft');
       }
     });
   }

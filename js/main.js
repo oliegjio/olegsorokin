@@ -16,6 +16,7 @@ $(function () {
     var $headerContactLink = $('.header__contact-link');
     var $aboutMeSection = $('.about-me-section');
     var $contactMeSection = $('.contact-me-section');
+    var $advantagesSectionAdvantage = $('.advantages-section__advantage');
     $headerAboutLink.click(function (event) {
         event.preventDefault();
         $('html body').animate({
@@ -51,6 +52,21 @@ $(function () {
     };
     for (var i = 0; i < $progressBars.length; i++) {
         _loop_1(i);
+    }
+    var _loop_2 = function(i) {
+        var $advantage = $($advantagesSectionAdvantage[i]);
+        $advantage.scrollspy({
+            min: $advantage.offset().top - $(window).innerHeight(),
+            max: $body.height(),
+            onEnter: function () {
+                if ($advantage.hasClass('animated'))
+                    return;
+                $advantage.addClass('animated').addClass('bounceInLeft');
+            }
+        });
+    };
+    for (var i = 0; i < $advantagesSectionAdvantage.length; i++) {
+        _loop_2(i);
     }
     $parallaxBreak.parallax({ imageSrc: '../images/sky1.jpg' });
     $whatIDoSectionParallax.parallax({ imageSrc: '../images/sky2.jpg' });
