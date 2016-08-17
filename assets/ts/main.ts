@@ -4,6 +4,7 @@
 ///<reference path="d.ts/pace.d.ts" />
 ///<reference path="d.ts/parallax.d.ts" />
 ///<reference path="d.ts/progressbar.d.ts" />
+///<reference path="d.ts/textillate.d.ts" />
 
 $(() => {
   let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first();
@@ -24,6 +25,34 @@ $(() => {
   let $aboutMeSection: JQuery = $('.about-me-section');
   let $contactMeSection: JQuery = $('.contact-me-section');
   let $advantagesSectionAdvantage: JQuery = $('.advantages-section__advantage');
+  let $welcomeSectionPrimaryHeader: JQuery = $('.welcome-section__primary-header');
+  let $welcomeSectionSecondaryHeader: JQuery = $('.welcome-section__secondary-header');
+  let $welcomeSectionSlogan: JQuery = $('.welcome-section__slogan');
+  let $welcomeSectionPrimaryButton: JQuery = $('.welcome-section .primary-button');
+  let $aboutMeSectionTextWrapper: JQuery = $('.about-me-section__text-wrapper');
+  let $aboutMeSectionImageWrapper: JQuery = $('.about-me-section__image-wrapper');
+  let $contactMeSectionHeader: JQuery = $('.contact-me-section__header');
+  let $contactMeForm: JQuery = $('#contact-me-form');
+
+  $aboutMeSectionTextWrapper.scrollspy({
+    min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
+    max: $('body').height(),
+    onEnter: () => {
+      $aboutMeSectionTextWrapper
+        .addClass('animated')
+        .addClass('bounceInLeft');
+    }
+  });
+
+  $aboutMeSectionImageWrapper.scrollspy({
+    min: $aboutMeSectionImageWrapper.offset().top - $(window).innerHeight(),
+    max: $('body').height(),
+    onEnter: () => {
+      $aboutMeSectionImageWrapper
+        .addClass('animated')
+        .addClass('bounceInRight');
+    }
+  });
 
   $headerAboutLink.click((event) => {
     event.preventDefault()
@@ -39,6 +68,48 @@ $(() => {
     $('html body').animate({
       scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
     }, 700);
+  });
+
+  $contactMeSectionHeader.scrollspy({
+    min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
+    max: $('body').height(),
+    onEnter: () => {
+      // let colorState: boolean = false;
+      // function changeColor() {
+      //   colorState = !colorState;
+      //   if(colorState) {
+      //     $contactMeSectionHeader.animate({
+      //       backgroundColor: 'green'
+      //     }, 1000, changeColor);
+      //   } else {
+      //     $contactMeSectionHeader.animate({
+      //       backgroundColor: 'black'
+      //     }, 1000, changeColor);
+      //   }
+      // }
+      // changeColor();
+      $contactMeSectionHeader
+        .addClass('animated')
+        .addClass('pulse')
+        .addClass('infinite');
+       setTimeout(() => {
+        $contactMeSectionHeader
+          .removeClass('animated')
+          .removeClass('pulse')
+          .removeClass('infinite');
+       }, 4000);
+    }
+  });
+
+  $contactMeForm.scrollspy({
+    min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
+    max: $('body').height(),
+    onEnter: () => {
+      $contactMeForm.css('visibility', 'visible');
+      $contactMeForm
+        .addClass('animated')
+        .addClass('flipInX');
+    }
   });
 
   for(let i = 0; i < $progressBars.length; i++) {
@@ -83,6 +154,72 @@ $(() => {
       });
     }
   }
+
+  let primaryButtonAnimating: boolean = true;
+  let primaryButtonAnimationRemoved: boolean = false;
+  setTimeout(() => {
+    $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
+    $welcomeSectionPrimaryButton
+      .show()
+      .addClass('animated')
+      .addClass('slideInUp');
+     primaryButtonAnimating = false;
+  }, 600);
+
+  function primaryButtonRemoveAnimation() {
+    if(primaryButtonAnimationRemoved) return;
+    $welcomeSectionPrimaryButton
+      .removeClass('animated')
+      .removeClass('slideInUp');
+  }
+
+  $welcomeSectionPrimaryButton.mouseenter(() => {
+    primaryButtonRemoveAnimation();
+    if(!primaryButtonAnimating) {
+      $welcomeSectionPrimaryButton
+        .addClass('animated')
+        .addClass('pulse')
+        .addClass('infinite');
+    }
+  });
+  $welcomeSectionPrimaryButton.mouseleave(() => {
+    primaryButtonRemoveAnimation();
+    if(!primaryButtonAnimating) {
+      $welcomeSectionPrimaryButton
+        .removeClass('animated')
+        .removeClass('pulse')
+        .removeClass('infinite');
+    }
+  });
+
+  let welcomeSectionLettersAnimationTime = 300;
+
+  $welcomeSectionPrimaryHeader.textillate({
+    in: {
+      effect: 'rollIn',
+      sync: true,
+      delay: welcomeSectionLettersAnimationTime
+    }
+  });
+
+  $welcomeSectionSecondaryHeader.textillate({
+    in: {
+      effect: 'rollIn',
+      reverse: true,
+      delay: welcomeSectionLettersAnimationTime,
+      sync: true 
+    }
+  });
+
+  $welcomeSectionSlogan.textillate({
+    in: {
+      effect: 'rollIn',
+      reverse: true,
+      delay: welcomeSectionLettersAnimationTime,
+      sync: true
+    }
+  });
+
 
   $parallaxBreak.parallax({imageSrc: '../images/sky1.jpg'});
 

@@ -62,7 +62,9 @@ var js_src = [
   'bower_components/pushy/js/pushy.min.js',
   'bower_components/slick-carousel/slick/slick.min.js',
   'bower_components/progressbar.js/dist/progressbar.min.js',
-  'bower_components/system.js/dist/system.js'
+  'bower_components/system.js/dist/system.js',
+  'bower_components/letteringjs/jquery.lettering.js',
+  'bower_components/textillate/jquery.textillate.js'
 ];
 var js_dest = 'js/';
 gulp.task('js', function(){

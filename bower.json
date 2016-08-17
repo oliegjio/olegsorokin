@@ -31,6 +31,8 @@
     "pushy": "^1.0.0",
     "PACE": "pace#^1.0.2",
     "components-font-awesome": "^4.6.3",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "letteringjs": "^0.7.0",
+    "textillate": "^0.4.0"
   }
 }
