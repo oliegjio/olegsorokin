@@ -70,36 +70,36 @@ $(() => {
     }, 700);
   });
 
-  $contactMeSectionHeader.scrollspy({
-    min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
-    max: $('body').height(),
-    onEnter: () => {
-      // let colorState: boolean = false;
-      // function changeColor() {
-      //   colorState = !colorState;
-      //   if(colorState) {
-      //     $contactMeSectionHeader.animate({
-      //       backgroundColor: 'green'
-      //     }, 1000, changeColor);
-      //   } else {
-      //     $contactMeSectionHeader.animate({
-      //       backgroundColor: 'black'
-      //     }, 1000, changeColor);
-      //   }
-      // }
-      // changeColor();
-      $contactMeSectionHeader
-        .addClass('animated')
-        .addClass('pulse')
-        .addClass('infinite');
-       setTimeout(() => {
-        $contactMeSectionHeader
-          .removeClass('animated')
-          .removeClass('pulse')
-          .removeClass('infinite');
-       }, 4000);
-    }
-  });
+  // $contactMeSectionHeader.scrollspy({
+  //   min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
+  //   max: $('body').height(),
+  //   onEnter: () => {
+  //     // let colorState: boolean = false;
+  //     // function changeColor() {
+  //     //   colorState = !colorState;
+  //     //   if(colorState) {
+  //     //     $contactMeSectionHeader.animate({
+  //     //       backgroundColor: 'green'
+  //     //     }, 1000, changeColor);
+  //     //   } else {
+  //     //     $contactMeSectionHeader.animate({
+  //     //       backgroundColor: 'black'
+  //     //     }, 1000, changeColor);
+  //     //   }
+  //     // }
+  //     // changeColor();
+  //     $contactMeSectionHeader
+  //       .addClass('animated')
+  //       .addClass('pulse')
+  //       .addClass('infinite');
+  //      setTimeout(() => {
+  //       $contactMeSectionHeader
+  //         .removeClass('animated')
+  //         .removeClass('pulse')
+  //         .removeClass('infinite');
+  //      }, 4000);
+  //   }
+  // });
 
   $contactMeForm.scrollspy({
     min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
@@ -192,7 +192,7 @@ $(() => {
     }
   });
 
-  let welcomeSectionLettersAnimationTime = 300;
+  let welcomeSectionLettersAnimationTime: number = 300;
 
   $welcomeSectionPrimaryHeader.textillate({
     in: {

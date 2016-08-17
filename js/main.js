@@ -55,22 +55,6 @@ $(function () {
             scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
         }, 700);
     });
-    $contactMeSectionHeader.scrollspy({
-        min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
-        max: $('body').height(),
-        onEnter: function () {
-            $contactMeSectionHeader
-                .addClass('animated')
-                .addClass('pulse')
-                .addClass('infinite');
-            setTimeout(function () {
-                $contactMeSectionHeader
-                    .removeClass('animated')
-                    .removeClass('pulse')
-                    .removeClass('infinite');
-            }, 4000);
-        }
-    });
     $contactMeForm.scrollspy({
         min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
         max: $('body').height(),
