@@ -221,9 +221,9 @@ $(() => {
   });
 
 
-  $parallaxBreak.parallax({imageSrc: '../images/sky1.jpg'});
+  $parallaxBreak.parallax({imageSrc: 'images/sky1.jpg'});
 
-  $whatIDoSectionParallax.parallax({imageSrc: '../images/sky2.jpg'});
+  $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
 
   $header.scrollspy({
     min: 1,

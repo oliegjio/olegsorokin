@@ -1,1 +1,0 @@
-<div class="header-carousel"><div><img src="../images/slide1.png" class="header-carousel__image"/></div><div><img src="../images/slide2.png" class="header-carousel__image"/></div></div>

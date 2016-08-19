@@ -10,9 +10,10 @@ var uglifycss = require('gulp-uglifycss');
 var concat = require('gulp-concat');
 
 var excluded = [
-  'node_modules',
-  'vendor',
-  'bower_components'
+  'node_modules/**/*',
+  'vendor/**/*',
+  'bower_components/**/*',
+  '**/_*.jade'
 ];
 var exclude = function(path){
   if(typeof path == 'object'){
@@ -22,17 +23,17 @@ var exclude = function(path){
     return path;
   }
   if(typeof path == 'string'){
-    var newPath = new Array();
+    var newPath = [];
     newPath.push(path);
     excluded.forEach(function(element, index){
-      newPath.push('!' + element + '/**/*');
+      newPath.push('!' + element);
     });
     return newPath;
   }
 }
 
-var jade_src = 'assets/jade/**/*.jade';
-var jade_dest = 'templates/';
+var jade_src = exclude('assets/jade/**/*.jade');
+var jade_dest = 'public/';
 gulp.task('jade', function(){
   gulp.src(jade_src)
     .pipe(jade())
@@ -43,30 +44,30 @@ gulp.task('jade', function(){
 var css_src = [
   'bower_components/PACE/themes/blue/pace-theme-center-radar.css',
   'bower_components/animate.css/animate.min.css',
-  'css/main.css'
+  'public/css/main.css'
 ];
-var css_dest = 'css/';
+var css_dest = 'public/css/';
 gulp.task('css', function(){
   gulp.src(css_src)
-    .on('error', util.log)
     .pipe(concat('all.css'))
     .pipe(uglifycss())
+    .on('error', util.log)
     .pipe(gulp.dest(css_dest));
 });
 
 var js_src = [
-  'bower_components/jquery/dist/jquery.min.js',
-  'bower_components/flexibility/flexibility.js',
-  'bower_components/jquery-scrollspy/jquery-scrollspy.js',
-  'bower_components/parallax.js/parallax.min.js',
-  'bower_components/pushy/js/pushy.min.js',
-  'bower_components/slick-carousel/slick/slick.min.js',
-  'bower_components/progressbar.js/dist/progressbar.min.js',
-  'bower_components/system.js/dist/system.js',
-  'bower_components/letteringjs/jquery.lettering.js',
-  'bower_components/textillate/jquery.textillate.js'
+  'public/bower_components/jquery/dist/jquery.min.js',
+  'public/bower_components/flexibility/flexibility.js',
+  'public/bower_components/jquery-scrollspy/jquery-scrollspy.js',
+  'public/bower_components/parallax.js/parallax.min.js',
+  'public/bower_components/pushy/js/pushy.min.js',
+  'public/bower_components/slick-carousel/slick/slick.min.js',
+  'public/bower_components/progressbar.js/dist/progressbar.min.js',
+  'public/bower_components/system.js/dist/system.js',
+  'public/bower_components/letteringjs/jquery.lettering.js',
+  'public/bower_components/textillate/jquery.textillate.js'
 ];
-var js_dest = 'js/';
+var js_dest = 'public/js/';
 gulp.task('js', function(){
   gulp.src(js_src)
     .pipe(concat('lib.js'))
@@ -78,7 +79,7 @@ gulp.task('js', function(){
 var sass_src = exclude([
   'assets/sass/**/*.sass'
 ]);
-var sass_dest = 'css/';
+var sass_dest = 'public/css/';
 gulp.task('sass', function(){
   gulp.src(sass_src)
     .on('error', util.log)
@@ -89,9 +90,9 @@ gulp.task('sass', function(){
     .pipe(gulp.dest(sass_dest));
 });
 
+var ts_src = exclude('assets/ts/**/*.ts');
+var ts_dest = 'public/js/';
 var tsProject = ts.createProject('assets/ts/tsconfig.json');
-var ts_src = 'assets/ts/**/*.ts';
-var ts_dest = 'js/';
 gulp.task('ts', function(){
   var tsResult = tsProject.src(ts_src)
     .on('error', util.log)
@@ -100,7 +101,6 @@ gulp.task('ts', function(){
 
   return tsResult.js
     .pipe(sourcemaps.write('map/'))
-    // .pipe(uglify())
     .pipe(gulp.dest(ts_dest));
 });
 
