@@ -10,7 +10,7 @@
 </style>
 
 <article>
-    <h1>We&rsquo;ll be back soon!</h1>
+    <h1>I&rsquo;ll be back soon!</h1>
     <div>
         <p>Sorry for the inconvenience but I am performing some maintenance at the moment. If you need to you can always <a href="https://vk.com/id225106539">contact Me</a>, otherwise I&rsquo;ll be back online shortly!</p>
         <p>&mdash; Oleg Sorokin</p>
