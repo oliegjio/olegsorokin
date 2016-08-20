@@ -43,8 +43,8 @@ gulp.task('jade', function(){
 });
 
 var css_src = [
-  'public/bower_components/PACE/themes/blue/pace-theme-center-radar.css',
-  'public/bower_components/animate.css/animate.min.css',
+  'bower_components/PACE/themes/blue/pace-theme-center-radar.css',
+  'bower_components/animate.css/animate.min.css',
   'public/css/main.css'
 ];
 var css_dest = 'public/css/';
@@ -57,16 +57,16 @@ gulp.task('css', function(){
 });
 
 var js_src = [
-  'public/bower_components/jquery/dist/jquery.min.js',
-  'public/bower_components/flexibility/flexibility.js',
-  'public/bower_components/jquery-scrollspy/jquery-scrollspy.js',
-  'public/bower_components/parallax.js/parallax.min.js',
-  'public/bower_components/pushy/js/pushy.min.js',
-  'public/bower_components/slick-carousel/slick/slick.min.js',
-  'public/bower_components/progressbar.js/dist/progressbar.min.js',
-  'public/bower_components/system.js/dist/system.js',
-  'public/bower_components/letteringjs/jquery.lettering.js',
-  'public/bower_components/textillate/jquery.textillate.js'
+  'bower_components/jquery/dist/jquery.min.js',
+  'bower_components/flexibility/flexibility.js',
+  'bower_components/jquery-scrollspy/jquery-scrollspy.js',
+  'bower_components/parallax.js/parallax.min.js',
+  'bower_components/pushy/js/pushy.min.js',
+  'bower_components/slick-carousel/slick/slick.min.js',
+  'bower_components/progressbar.js/dist/progressbar.min.js',
+  'bower_components/system.js/dist/system.js',
+  'bower_components/letteringjs/jquery.lettering.js',
+  'bower_components/textillate/jquery.textillate.js'
 ];
 var js_dest = 'public/js/';
 gulp.task('js', function(){
