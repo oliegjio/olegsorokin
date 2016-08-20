@@ -17,9 +17,9 @@ $(() => {
   let $parallaxBreak: JQuery = $('.parallax-break');
   let $progressBars: JQuery = $('.skills-section__progress-bar');
   let activatedProgressBars: Array<boolean> = [false, false, false, false];
-  let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
-  let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
-  let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
+  // let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
+  // let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
+  // let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
   let $headerAboutLink: JQuery = $('.header__about-link');
   let $headerContactLink: JQuery = $('.header__contact-link');
   let $aboutMeSection: JQuery = $('.about-me-section');
@@ -192,38 +192,38 @@ $(() => {
     }
   });
 
-  let welcomeSectionLettersAnimationTime: number = 300;
+  // let welcomeSectionLettersAnimationTime: number = 300;
 
-  $welcomeSectionPrimaryHeader.textillate({
-    in: {
-      effect: 'rollIn',
-      sync: true,
-      delay: welcomeSectionLettersAnimationTime
-    }
-  });
+  // $welcomeSectionPrimaryHeader.textillate({
+  //   in: {
+  //     effect: 'rollIn',
+  //     sync: true,
+  //     delay: welcomeSectionLettersAnimationTime
+  //   }
+  // });
 
-  $welcomeSectionSecondaryHeader.textillate({
-    in: {
-      effect: 'rollIn',
-      reverse: true,
-      delay: welcomeSectionLettersAnimationTime,
-      sync: true 
-    }
-  });
+  // $welcomeSectionSecondaryHeader.textillate({
+  //   in: {
+  //     effect: 'rollIn',
+  //     reverse: true,
+  //     delay: welcomeSectionLettersAnimationTime,
+  //     sync: true 
+  //   }
+  // });
 
-  $welcomeSectionSlogan.textillate({
-    in: {
-      effect: 'rollIn',
-      reverse: true,
-      delay: welcomeSectionLettersAnimationTime,
-      sync: true
-    }
-  });
+  // $welcomeSectionSlogan.textillate({
+  //   in: {
+  //     effect: 'rollIn',
+  //     reverse: true,
+  //     delay: welcomeSectionLettersAnimationTime,
+  //     sync: true
+  //   }
+  // });
 
 
-  $parallaxBreak.parallax({imageSrc: 'images/sky1.jpg'});
+  $parallaxBreak.parallax({imageSrc: 'images/sky.jpg', parallax: 'scroll'});
 
-  $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
+  // $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
 
   $header.scrollspy({
     min: 1,
@@ -249,30 +249,30 @@ $(() => {
     swipe: false
   });
 
-  $whatIDoSectionCarousel.slick({
-    appendArrows: $whatIDoSectionContentWrapper,
-    infinite: true,
-    arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    swipe: false,
-    responsive: [
-      {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
+  // $whatIDoSectionCarousel.slick({
+  //   appendArrows: $whatIDoSectionContentWrapper,
+  //   infinite: true,
+  //   arrows: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 3,
+  //   swipe: false,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1440,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1
+  //       }
+  //     }
+  //   ]
+  // });
 
   $openOffcanvas.click(() => {
     $openOffcanvas.toggleClass('hamburger--open');

@@ -32,18 +32,19 @@ var exclude = function(path){
   }
 }
 
-var jade_src = exclude('assets/jade/**/*.jade');
+var jade_src = 'assets/jade/**/*.jade';
+var jade_src_excluded = exclude('assets/jade/**/*.jade')
 var jade_dest = 'public/';
 gulp.task('jade', function(){
-  gulp.src(jade_src)
+  gulp.src(jade_src_excluded)
     .pipe(jade())
     .on('error', util.log)
     .pipe(gulp.dest(jade_dest));
 });
 
 var css_src = [
-  'bower_components/PACE/themes/blue/pace-theme-center-radar.css',
-  'bower_components/animate.css/animate.min.css',
+  'public/bower_components/PACE/themes/blue/pace-theme-center-radar.css',
+  'public/bower_components/animate.css/animate.min.css',
   'public/css/main.css'
 ];
 var css_dest = 'public/css/';

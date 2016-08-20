@@ -9,9 +9,6 @@ $(function () {
     var $parallaxBreak = $('.parallax-break');
     var $progressBars = $('.skills-section__progress-bar');
     var activatedProgressBars = [false, false, false, false];
-    var $whatIDoSectionParallax = $('.what-i-do-section__parallax');
-    var $whatIDoSectionCarousel = $('.what-i-do-section__carousel');
-    var $whatIDoSectionContentWrapper = $('.what-i-do-section__content-wrapper');
     var $headerAboutLink = $('.header__about-link');
     var $headerContactLink = $('.header__contact-link');
     var $aboutMeSection = $('.about-me-section');
@@ -143,32 +140,7 @@ $(function () {
                 .removeClass('infinite');
         }
     });
-    var welcomeSectionLettersAnimationTime = 300;
-    $welcomeSectionPrimaryHeader.textillate({
-        in: {
-            effect: 'rollIn',
-            sync: true,
-            delay: welcomeSectionLettersAnimationTime
-        }
-    });
-    $welcomeSectionSecondaryHeader.textillate({
-        in: {
-            effect: 'rollIn',
-            reverse: true,
-            delay: welcomeSectionLettersAnimationTime,
-            sync: true
-        }
-    });
-    $welcomeSectionSlogan.textillate({
-        in: {
-            effect: 'rollIn',
-            reverse: true,
-            delay: welcomeSectionLettersAnimationTime,
-            sync: true
-        }
-    });
-    $parallaxBreak.parallax({ imageSrc: 'images/sky1.jpg' });
-    $whatIDoSectionParallax.parallax({ imageSrc: 'images/sky2.jpg' });
+    $parallaxBreak.parallax({ imageSrc: 'images/sky.jpg', parallax: 'scroll' });
     $header.scrollspy({
         min: 1,
         max: $body.height(),
@@ -189,30 +161,6 @@ $(function () {
         infinite: true,
         speed: 2500,
         swipe: false
-    });
-    $whatIDoSectionCarousel.slick({
-        appendArrows: $whatIDoSectionContentWrapper,
-        infinite: true,
-        arrows: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        swipe: false,
-        responsive: [
-            {
-                breakpoint: 1440,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
     });
     $openOffcanvas.click(function () {
         $openOffcanvas.toggleClass('hamburger--open');
