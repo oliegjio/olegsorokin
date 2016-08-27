@@ -4,14 +4,14 @@
 //
 //////////////////////////////
 
-////
+//////
 // File Search Ignore:
-////
+//////
 -bower_components/,-node_modules/,-.git/
 
-////
+//////
 // SSH Login:
-////
+//////
 ssh u86118431@home643769912.1and1-data.host
 
 //////////////////////////////
@@ -20,14 +20,14 @@ ssh u86118431@home643769912.1and1-data.host
 //
 //////////////////////////////
 
-////
+//////
 // Prevent indexing this folder and all subfolders:
-////
+//////
 Header set X-Robots-Tag "noindex, nofollow"
 
-////
+//////
 // Access:
-////
+//////
 
 // Deny access to any user to every folder except user with this IP
 Allow from 192.168.0.100
@@ -44,9 +44,9 @@ Allow from 100.100.100.100
 // Block access to: "includes/", "submit.php"
 RewriteRule ^(includes/|submit\.php) - [F,L,NC]
 
-////
+//////
 // G-Zip, Compression:
-////
+//////
 
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|xml|gz)$">
@@ -77,8 +77,8 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 //
 //////////////////////////////
 
-////
+//////
 // Prevent indexing folder "/":
-////
+//////
 User-agent: *
 Disallow: /
