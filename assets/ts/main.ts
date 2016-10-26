@@ -34,25 +34,128 @@ $(() => {
   let $contactMeSectionHeader: JQuery = $('.contact-me-section__header');
   let $contactMeForm: JQuery = $('#contact-me-form');
 
-  $aboutMeSectionTextWrapper.scrollspy({
-    min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
-    max: $('body').height(),
-    onEnter: () => {
-      $aboutMeSectionTextWrapper
-        .addClass('animated')
-        .addClass('bounceInLeft');
-    }
-  });
+  
+  let isMobile: boolean;
+  if (window.innerWidth <= 768) {
+     isMobile = true;
+  } else { isMobile = false; }
 
-  $aboutMeSectionImageWrapper.scrollspy({
-    min: $aboutMeSectionImageWrapper.offset().top - $(window).innerHeight(),
-    max: $('body').height(),
-    onEnter: () => {
-      $aboutMeSectionImageWrapper
-        .addClass('animated')
-        .addClass('bounceInRight');
+  if (!isMobile) {
+      $aboutMeSectionTextWrapper.scrollspy({
+        min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
+        max: $('body').height(),
+        onEnter: () => {
+          $aboutMeSectionTextWrapper
+            .addClass('animated')
+            .addClass('bounceInLeft');
+        }
+      });
+
+      $aboutMeSectionImageWrapper.scrollspy({
+        min: $aboutMeSectionImageWrapper.offset().top - $(window).innerHeight(),
+        max: $('body').height(),
+        onEnter: () => {
+          $aboutMeSectionImageWrapper
+            .addClass('animated')
+            .addClass('bounceInRight');
+        }
+      });
+
+      $contactMeForm.scrollspy({
+        min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
+        max: $('body').height(),
+        onEnter: () => {
+          $contactMeForm.css('visibility', 'visible');
+          $contactMeForm
+            .addClass('animated')
+            .addClass('flipInX');
+        }
+      });
+
+      
+    // Animate Advantages Items
+    for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
+      let $advantage = $($advantagesSectionAdvantage[i]);
+      $advantage.scrollspy({
+        min: $advantage.offset().top - $(window).innerHeight(),
+        max: $body.height(),
+        onEnter: () => {
+          if($advantage.hasClass('animated')) return;
+
+          $advantage.addClass('animated').addClass('bounceInLeft');
+        }
+      });
     }
-  });
+
+      let primaryButtonAnimating: boolean = true;
+      setTimeout(() => {
+        $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
+        $welcomeSectionPrimaryButton
+          .show()
+          .addClass('animated')
+          .addClass('slideInUp');
+         primaryButtonAnimating = false;
+      }, 600);
+
+      function primaryButtonRemoveAnimation() {
+        $welcomeSectionPrimaryButton
+          .removeClass('animated')
+          .removeClass('slideInUp');
+      }
+
+      $welcomeSectionPrimaryButton.mouseenter(() => {
+        primaryButtonRemoveAnimation();
+        if(!primaryButtonAnimating) {
+          $welcomeSectionPrimaryButton
+            .addClass('animated')
+            .addClass('pulse')
+            .addClass('infinite');
+        }
+      });
+
+      $welcomeSectionPrimaryButton.mouseleave(() => {
+        primaryButtonRemoveAnimation();
+        if(!primaryButtonAnimating) {
+          $welcomeSectionPrimaryButton
+            .removeClass('animated')
+            .removeClass('pulse')
+            .removeClass('infinite');
+        }
+      });
+
+  } else {
+      $contactMeForm.css('visibility', 'visible');
+  }
+
+  for(let i = 0; i < $progressBars.length; i++) {
+    let $progressBar = $($progressBars[i]);
+    $progressBar.scrollspy({
+      min: $progressBar.offset().top - $(window).innerHeight() - 150,
+      max: $body.height(),
+      onEnter: () => {
+        if(activatedProgressBars[i] === true) return;
+
+        let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
+        let progress: number = 40;
+
+        if (isMobile == false) {
+            let interval: number = setInterval(() => {
+              $progressBar.css('width', progress + '%');
+
+              progress += 0.5;
+
+              if(progress === percentage) {
+                clearInterval(interval);
+              }
+            }, 10);
+        } else {
+          $progressBar.css('width', percentage + '%');
+        }
+
+        activatedProgressBars[i] = true;
+      }
+    });
+  }
 
   $headerAboutLink.click((event) => {
     event.preventDefault()
@@ -101,96 +204,7 @@ $(() => {
   //   }
   // });
 
-  $contactMeForm.scrollspy({
-    min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
-    max: $('body').height(),
-    onEnter: () => {
-      $contactMeForm.css('visibility', 'visible');
-      $contactMeForm
-        .addClass('animated')
-        .addClass('flipInX');
-    }
-  });
 
-  for(let i = 0; i < $progressBars.length; i++) {
-    let $progressBar = $($progressBars[i]);
-    $progressBar.scrollspy({
-      min: $progressBar.offset().top - $(window).innerHeight() - 150,
-      max: $body.height(),
-      onEnter: () => {
-        if(activatedProgressBars[i] === true) return;
-
-        let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
-        let progress: number = 40;
-
-        let interval: number = setInterval(() => {
-          $progressBar.css('width', progress + '%');
-
-          progress += 0.5;
-
-          if(progress === percentage) {
-            clearInterval(interval);
-          }
-        }, 10);
-
-        activatedProgressBars[i] = true;
-      }
-    });
-  }
-
-  if(screen.width > 768) animateAdvantagesItems();
-
-  function animateAdvantagesItems() {
-    for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
-      let $advantage = $($advantagesSectionAdvantage[i]);
-      $advantage.scrollspy({
-        min: $advantage.offset().top - $(window).innerHeight(),
-        max: $body.height(),
-        onEnter: () => {
-          if($advantage.hasClass('animated')) return;
-
-          $advantage.addClass('animated').addClass('bounceInLeft');
-        }
-      });
-    }
-  }
-
-  let primaryButtonAnimating: boolean = true;
-  let primaryButtonAnimationRemoved: boolean = false;
-  setTimeout(() => {
-    $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
-    $welcomeSectionPrimaryButton
-      .show()
-      .addClass('animated')
-      .addClass('slideInUp');
-     primaryButtonAnimating = false;
-  }, 600);
-
-  function primaryButtonRemoveAnimation() {
-    if(primaryButtonAnimationRemoved) return;
-    $welcomeSectionPrimaryButton
-      .removeClass('animated')
-      .removeClass('slideInUp');
-  }
-
-  $welcomeSectionPrimaryButton.mouseenter(() => {
-    primaryButtonRemoveAnimation();
-    if(!primaryButtonAnimating) {
-      $welcomeSectionPrimaryButton
-        .addClass('animated')
-        .addClass('pulse')
-        .addClass('infinite');
-    }
-  });
-  $welcomeSectionPrimaryButton.mouseleave(() => {
-    primaryButtonRemoveAnimation();
-    if(!primaryButtonAnimating) {
-      $welcomeSectionPrimaryButton
-        .removeClass('animated')
-        .removeClass('pulse')
-        .removeClass('infinite');
-    }
-  });
 
   // let welcomeSectionLettersAnimationTime: number = 300;
 
