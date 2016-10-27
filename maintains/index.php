@@ -31,7 +31,7 @@
                 </a>
                 , otherwise I&rsquo;ll be back online shortly!
             </p>
-            <p>&mdash; Oleg Sorokin</p>
+            <p>&mdash; Oleg</p>
       </div>
   </article>
 </body>
