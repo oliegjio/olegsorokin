@@ -5,6 +5,7 @@
 ///<reference path="d.ts/parallax.d.ts" />
 ///<reference path="d.ts/progressbar.d.ts" />
 ///<reference path="d.ts/textillate.d.ts" />
+
 $(() => {
     let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first();
     let $header: JQuery = $('.header').first();
@@ -16,9 +17,6 @@ $(() => {
     let $parallaxBreak: JQuery = $('.parallax-break');
     let $progressBars: JQuery = $('.skills-section__progress-bar');
     let activatedProgressBars: Array < boolean > = [false, false, false, false];
-    // let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
-    // let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
-    // let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
     let $headerAboutLink: JQuery = $('.header__about-link');
     let $headerContactLink: JQuery = $('.header__contact-link');
     let $aboutMeSection: JQuery = $('.about-me-section');
@@ -32,9 +30,11 @@ $(() => {
     let $aboutMeSectionImageWrapper: JQuery = $('.about-me-section__image-wrapper');
     let $contactMeSectionHeader: JQuery = $('.contact-me-section__header');
     let $contactMeForm: JQuery = $('#contact-me-form');
+    let $contactMeSectionSubmit: JQuery = $('.contact-me-section__submit');
 
     let isMobile: boolean = false;
-    if (navigator.userAgent.match(/Android/i) ||
+    if (
+        navigator.userAgent.match(/Android/i) ||
         navigator.userAgent.match(/webOS/i) ||
         navigator.userAgent.match(/iPhone/i) ||
         navigator.userAgent.match(/iPad/i) ||
@@ -44,7 +44,6 @@ $(() => {
     ) {
         isMobile = true;
     }
-    console.log(isMobile);
 
     if (!isMobile) {
         $aboutMeSectionTextWrapper.scrollspy({
@@ -78,8 +77,6 @@ $(() => {
             }
         });
 
-
-        // Animate Advantages Items
         for (let i = 0; i < $advantagesSectionAdvantage.length; i++) {
             let $advantage = $($advantagesSectionAdvantage[i]);
             $advantage.scrollspy({
@@ -87,23 +84,20 @@ $(() => {
                 max: $body.height(),
                 onEnter: () => {
                     if ($advantage.hasClass('animated')) return;
-
                     $advantage.addClass('animated').addClass('bounceInLeft');
                 }
             });
         }
 
-        let primaryButtonAnimating: boolean = true;
         setTimeout(() => {
             $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
             $welcomeSectionPrimaryButton
                 .show()
                 .addClass('animated')
                 .addClass('slideInUp');
-            primaryButtonAnimating = false;
         }, 600);
 
-        function primaryButtonRemoveAnimation() {
+        function primaryButtonRemoveAnimation(): void {
             $welcomeSectionPrimaryButton
                 .removeClass('animated')
                 .removeClass('slideInUp');
@@ -111,22 +105,18 @@ $(() => {
 
         $welcomeSectionPrimaryButton.mouseenter(() => {
             primaryButtonRemoveAnimation();
-            if (!primaryButtonAnimating) {
-                $welcomeSectionPrimaryButton
-                    .addClass('animated')
-                    .addClass('pulse')
-                    .addClass('infinite');
-            }
+            $welcomeSectionPrimaryButton
+                .addClass('animated')
+                .addClass('pulse')
+                .addClass('infinite');
         });
 
         $welcomeSectionPrimaryButton.mouseleave(() => {
             primaryButtonRemoveAnimation();
-            if (!primaryButtonAnimating) {
-                $welcomeSectionPrimaryButton
-                    .removeClass('animated')
-                    .removeClass('pulse')
-                    .removeClass('infinite');
-            }
+            $welcomeSectionPrimaryButton
+                .removeClass('animated')
+                .removeClass('pulse')
+                .removeClass('infinite');
         });
 
     } else {
@@ -140,16 +130,12 @@ $(() => {
             max: $body.height(),
             onEnter: () => {
                 if (activatedProgressBars[i] === true) return;
-
                 let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
                 let progress: number = 40;
-
                 if (isMobile == false) {
                     let interval: number = setInterval(() => {
                         $progressBar.css('width', progress + '%');
-
                         progress += 0.5;
-
                         if (progress === percentage) {
                             clearInterval(interval);
                         }
@@ -157,7 +143,6 @@ $(() => {
                 } else {
                     $progressBar.css('width', percentage + '%');
                 }
-
                 activatedProgressBars[i] = true;
             }
         });
@@ -165,7 +150,6 @@ $(() => {
 
     $headerAboutLink.click((event) => {
         event.preventDefault()
-
         $('html body').animate({
             scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
         }, 700);
@@ -173,80 +157,15 @@ $(() => {
 
     $headerContactLink.click((event) => {
         event.preventDefault();
-
         $('html body').animate({
             scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
         }, 700);
     });
 
-    // $contactMeSectionHeader.scrollspy({
-    //   min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
-    //   max: $('body').height(),
-    //   onEnter: () => {
-    //     // let colorState: boolean = false;
-    //     // function changeColor() {
-    //     //   colorState = !colorState;
-    //     //   if(colorState) {
-    //     //     $contactMeSectionHeader.animate({
-    //     //       backgroundColor: 'green'
-    //     //     }, 1000, changeColor);
-    //     //   } else {
-    //     //     $contactMeSectionHeader.animate({
-    //     //       backgroundColor: 'black'
-    //     //     }, 1000, changeColor);
-    //     //   }
-    //     // }
-    //     // changeColor();
-    //     $contactMeSectionHeader
-    //       .addClass('animated')
-    //       .addClass('pulse')
-    //       .addClass('infinite');
-    //      setTimeout(() => {
-    //       $contactMeSectionHeader
-    //         .removeClass('animated')
-    //         .removeClass('pulse')
-    //         .removeClass('infinite');
-    //      }, 4000);
-    //   }
-    // });
-
-
-
-    // let welcomeSectionLettersAnimationTime: number = 300;
-
-    // $welcomeSectionPrimaryHeader.textillate({
-    //   in: {
-    //     effect: 'rollIn',
-    //     sync: true,
-    //     delay: welcomeSectionLettersAnimationTime
-    //   }
-    // });
-
-    // $welcomeSectionSecondaryHeader.textillate({
-    //   in: {
-    //     effect: 'rollIn',
-    //     reverse: true,
-    //     delay: welcomeSectionLettersAnimationTime,
-    //     sync: true 
-    //   }
-    // });
-
-    // $welcomeSectionSlogan.textillate({
-    //   in: {
-    //     effect: 'rollIn',
-    //     reverse: true,
-    //     delay: welcomeSectionLettersAnimationTime,
-    //     sync: true
-    //   }
-    // });
-
-
     $parallaxBreak.parallax({
         imageSrc: 'images/sky.jpg',
         parallax: 'scroll'
     });
-
-    // $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
 
     $header.scrollspy({
         min: 1,
@@ -272,37 +191,27 @@ $(() => {
         swipe: false
     });
 
-    // $whatIDoSectionCarousel.slick({
-    //   appendArrows: $whatIDoSectionContentWrapper,
-    //   infinite: true,
-    //   arrows: true,
-    //   slidesToShow: 3,
-    //   slidesToScroll: 3,
-    //   swipe: false,
-    //   responsive: [
-    //     {
-    //       breakpoint: 1440,
-    //       settings: {
-    //         slidesToShow: 2,
-    //         slidesToScroll: 1
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 1024,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1
-    //       }
-    //     }
-    //   ]
-    // });
-
     $openOffcanvas.click(() => {
         $openOffcanvas.toggleClass('hamburger--open');
     });
 
     $siteOverlay.click(() => {
         $openOffcanvas.removeClass('hamburger--open');
+    });
+
+    $contactMeSectionSubmit.click((event) => {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'mail.php',
+            data: $contactMeForm.serialize(),
+            success: (response) => {
+                alert(response);
+            },
+            error: () => {
+                alert("Error");
+            }
+        });
     });
 
     $(window).scroll();

@@ -22,6 +22,7 @@ $(function () {
     var $aboutMeSectionImageWrapper = $('.about-me-section__image-wrapper');
     var $contactMeSectionHeader = $('.contact-me-section__header');
     var $contactMeForm = $('#contact-me-form');
+    var $contactMeSectionSubmit = $('.contact-me-section__submit');
     var isMobile = false;
     if (navigator.userAgent.match(/Android/i) ||
         navigator.userAgent.match(/webOS/i) ||
@@ -32,7 +33,6 @@ $(function () {
         navigator.userAgent.match(/Windows Phone/i)) {
         isMobile = true;
     }
-    console.log(isMobile);
     if (!isMobile) {
         $aboutMeSectionTextWrapper.scrollspy({
             min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
@@ -77,14 +77,12 @@ $(function () {
         for (var i = 0; i < $advantagesSectionAdvantage.length; i++) {
             _loop_1(i);
         }
-        var primaryButtonAnimating_1 = true;
         setTimeout(function () {
             $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
             $welcomeSectionPrimaryButton
                 .show()
                 .addClass('animated')
                 .addClass('slideInUp');
-            primaryButtonAnimating_1 = false;
         }, 600);
         function primaryButtonRemoveAnimation() {
             $welcomeSectionPrimaryButton
@@ -93,21 +91,17 @@ $(function () {
         }
         $welcomeSectionPrimaryButton.mouseenter(function () {
             primaryButtonRemoveAnimation();
-            if (!primaryButtonAnimating_1) {
-                $welcomeSectionPrimaryButton
-                    .addClass('animated')
-                    .addClass('pulse')
-                    .addClass('infinite');
-            }
+            $welcomeSectionPrimaryButton
+                .addClass('animated')
+                .addClass('pulse')
+                .addClass('infinite');
         });
         $welcomeSectionPrimaryButton.mouseleave(function () {
             primaryButtonRemoveAnimation();
-            if (!primaryButtonAnimating_1) {
-                $welcomeSectionPrimaryButton
-                    .removeClass('animated')
-                    .removeClass('pulse')
-                    .removeClass('infinite');
-            }
+            $welcomeSectionPrimaryButton
+                .removeClass('animated')
+                .removeClass('pulse')
+                .removeClass('infinite');
         });
     }
     else {
@@ -184,6 +178,20 @@ $(function () {
     });
     $siteOverlay.click(function () {
         $openOffcanvas.removeClass('hamburger--open');
+    });
+    $contactMeSectionSubmit.click(function (event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'mail.php',
+            data: $contactMeForm.serialize(),
+            success: function (response) {
+                alert(response);
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
     });
     $(window).scroll();
 });

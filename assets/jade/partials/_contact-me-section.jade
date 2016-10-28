@@ -6,8 +6,8 @@ div#contact-me-section.contact-me-section
     | You can contact me via 
     a.contact-me-section__profile-link(href='#') UpWork
     |  or E-Mail:
-  form#contact-me-form.contact-me-section__form
-    input.contact-me-section__name.contact-me-section__input(type='text', placeholder='NAME')
-    input.contact-me-section__email.contact-me-section__input(type='text', placeholder='E-MAIL')
-    textarea.contact-me-section__textarea.contact-me-section__input(placeholder='MESSAGE', form='contact-me-form')
+  form#contact-me-form.contact-me-section__form(name='contactMeForm', method="post", action="index.php")
+    input.contact-me-section__name.contact-me-section__input(name='name', type='text', placeholder='NAME')
+    input.contact-me-section__email.contact-me-section__input(name='email', type='text', placeholder='E-MAIL')
+    textarea.contact-me-section__textarea.contact-me-section__input(name='message', placeholder='MESSAGE', form='contact-me-form')
     input.contact-me-section__submit.contact-me-section__input.primary-button.primary-button--color-dark--hover(type='submit', value='SUBMIT')
