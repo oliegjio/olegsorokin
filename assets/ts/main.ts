@@ -5,296 +5,305 @@
 ///<reference path="d.ts/parallax.d.ts" />
 ///<reference path="d.ts/progressbar.d.ts" />
 ///<reference path="d.ts/textillate.d.ts" />
-
 $(() => {
-  let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first();
-  let $header: JQuery = $('.header').first();
-  let $headerCarousel: JQuery = $('.header-carousel').first();
-  let $body: JQuery = $('body');
-  let $openOffcanvas: JQuery = $('#open-offcanvas');
-  let $siteOverlay: JQuery = $('.site-overlay').first();
-  let $offcanvasMenu: JQuery = $('.offcanvas-menu').first();
-  let $parallaxBreak: JQuery = $('.parallax-break');
-  let $progressBars: JQuery = $('.skills-section__progress-bar');
-  let activatedProgressBars: Array<boolean> = [false, false, false, false];
-  // let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
-  // let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
-  // let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
-  let $headerAboutLink: JQuery = $('.header__about-link');
-  let $headerContactLink: JQuery = $('.header__contact-link');
-  let $aboutMeSection: JQuery = $('.about-me-section');
-  let $contactMeSection: JQuery = $('.contact-me-section');
-  let $advantagesSectionAdvantage: JQuery = $('.advantages-section__advantage');
-  let $welcomeSectionPrimaryHeader: JQuery = $('.welcome-section__primary-header');
-  let $welcomeSectionSecondaryHeader: JQuery = $('.welcome-section__secondary-header');
-  let $welcomeSectionSlogan: JQuery = $('.welcome-section__slogan');
-  let $welcomeSectionPrimaryButton: JQuery = $('.welcome-section .primary-button');
-  let $aboutMeSectionTextWrapper: JQuery = $('.about-me-section__text-wrapper');
-  let $aboutMeSectionImageWrapper: JQuery = $('.about-me-section__image-wrapper');
-  let $contactMeSectionHeader: JQuery = $('.contact-me-section__header');
-  let $contactMeForm: JQuery = $('#contact-me-form');
+    let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first();
+    let $header: JQuery = $('.header').first();
+    let $headerCarousel: JQuery = $('.header-carousel').first();
+    let $body: JQuery = $('body');
+    let $openOffcanvas: JQuery = $('#open-offcanvas');
+    let $siteOverlay: JQuery = $('.site-overlay').first();
+    let $offcanvasMenu: JQuery = $('.offcanvas-menu').first();
+    let $parallaxBreak: JQuery = $('.parallax-break');
+    let $progressBars: JQuery = $('.skills-section__progress-bar');
+    let activatedProgressBars: Array < boolean > = [false, false, false, false];
+    // let $whatIDoSectionParallax: JQuery = $('.what-i-do-section__parallax');
+    // let $whatIDoSectionCarousel: JQuery = $('.what-i-do-section__carousel');
+    // let $whatIDoSectionContentWrapper: JQuery = $('.what-i-do-section__content-wrapper');
+    let $headerAboutLink: JQuery = $('.header__about-link');
+    let $headerContactLink: JQuery = $('.header__contact-link');
+    let $aboutMeSection: JQuery = $('.about-me-section');
+    let $contactMeSection: JQuery = $('.contact-me-section');
+    let $advantagesSectionAdvantage: JQuery = $('.advantages-section__advantage');
+    let $welcomeSectionPrimaryHeader: JQuery = $('.welcome-section__primary-header');
+    let $welcomeSectionSecondaryHeader: JQuery = $('.welcome-section__secondary-header');
+    let $welcomeSectionSlogan: JQuery = $('.welcome-section__slogan');
+    let $welcomeSectionPrimaryButton: JQuery = $('.welcome-section .primary-button');
+    let $aboutMeSectionTextWrapper: JQuery = $('.about-me-section__text-wrapper');
+    let $aboutMeSectionImageWrapper: JQuery = $('.about-me-section__image-wrapper');
+    let $contactMeSectionHeader: JQuery = $('.contact-me-section__header');
+    let $contactMeForm: JQuery = $('#contact-me-form');
 
-  
-  let isMobile: boolean;
-  if (window.innerWidth <= 768) {
-     isMobile = true;
-  } else { isMobile = false; }
+    let isMobile: boolean = false;
+    if (navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i)
+    ) {
+        isMobile = true;
+    }
+    console.log(isMobile);
 
-  if (!isMobile) {
-      $aboutMeSectionTextWrapper.scrollspy({
-        min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
-        max: $('body').height(),
-        onEnter: () => {
-          $aboutMeSectionTextWrapper
-            .addClass('animated')
-            .addClass('bounceInLeft');
+    if (!isMobile) {
+        $aboutMeSectionTextWrapper.scrollspy({
+            min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: () => {
+                $aboutMeSectionTextWrapper
+                    .addClass('animated')
+                    .addClass('bounceInLeft');
+            }
+        });
+
+        $aboutMeSectionImageWrapper.scrollspy({
+            min: $aboutMeSectionImageWrapper.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: () => {
+                $aboutMeSectionImageWrapper
+                    .addClass('animated')
+                    .addClass('bounceInRight');
+            }
+        });
+
+        $contactMeForm.scrollspy({
+            min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
+            max: $('body').height(),
+            onEnter: () => {
+                $contactMeForm.css('visibility', 'visible');
+                $contactMeForm
+                    .addClass('animated')
+                    .addClass('flipInX');
+            }
+        });
+
+
+        // Animate Advantages Items
+        for (let i = 0; i < $advantagesSectionAdvantage.length; i++) {
+            let $advantage = $($advantagesSectionAdvantage[i]);
+            $advantage.scrollspy({
+                min: $advantage.offset().top - $(window).innerHeight(),
+                max: $body.height(),
+                onEnter: () => {
+                    if ($advantage.hasClass('animated')) return;
+
+                    $advantage.addClass('animated').addClass('bounceInLeft');
+                }
+            });
         }
-      });
 
-      $aboutMeSectionImageWrapper.scrollspy({
-        min: $aboutMeSectionImageWrapper.offset().top - $(window).innerHeight(),
-        max: $('body').height(),
-        onEnter: () => {
-          $aboutMeSectionImageWrapper
-            .addClass('animated')
-            .addClass('bounceInRight');
+        let primaryButtonAnimating: boolean = true;
+        setTimeout(() => {
+            $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
+            $welcomeSectionPrimaryButton
+                .show()
+                .addClass('animated')
+                .addClass('slideInUp');
+            primaryButtonAnimating = false;
+        }, 600);
+
+        function primaryButtonRemoveAnimation() {
+            $welcomeSectionPrimaryButton
+                .removeClass('animated')
+                .removeClass('slideInUp');
         }
-      });
 
-      $contactMeForm.scrollspy({
-        min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
-        max: $('body').height(),
-        onEnter: () => {
-          $contactMeForm.css('visibility', 'visible');
-          $contactMeForm
-            .addClass('animated')
-            .addClass('flipInX');
-        }
-      });
+        $welcomeSectionPrimaryButton.mouseenter(() => {
+            primaryButtonRemoveAnimation();
+            if (!primaryButtonAnimating) {
+                $welcomeSectionPrimaryButton
+                    .addClass('animated')
+                    .addClass('pulse')
+                    .addClass('infinite');
+            }
+        });
 
-      
-    // Animate Advantages Items
-    for(let i = 0; i < $advantagesSectionAdvantage.length; i++) {
-      let $advantage = $($advantagesSectionAdvantage[i]);
-      $advantage.scrollspy({
-        min: $advantage.offset().top - $(window).innerHeight(),
-        max: $body.height(),
-        onEnter: () => {
-          if($advantage.hasClass('animated')) return;
+        $welcomeSectionPrimaryButton.mouseleave(() => {
+            primaryButtonRemoveAnimation();
+            if (!primaryButtonAnimating) {
+                $welcomeSectionPrimaryButton
+                    .removeClass('animated')
+                    .removeClass('pulse')
+                    .removeClass('infinite');
+            }
+        });
 
-          $advantage.addClass('animated').addClass('bounceInLeft');
-        }
-      });
+    } else {
+        $contactMeForm.css('visibility', 'visible');
     }
 
-      let primaryButtonAnimating: boolean = true;
-      setTimeout(() => {
-        $welcomeSectionShadow.css('background-color', 'rgba(0, 0, 0, 0.20)');
-        $welcomeSectionPrimaryButton
-          .show()
-          .addClass('animated')
-          .addClass('slideInUp');
-         primaryButtonAnimating = false;
-      }, 600);
+    for (let i = 0; i < $progressBars.length; i++) {
+        let $progressBar = $($progressBars[i]);
+        $progressBar.scrollspy({
+            min: $progressBar.offset().top - $(window).innerHeight() - 150,
+            max: $body.height(),
+            onEnter: () => {
+                if (activatedProgressBars[i] === true) return;
 
-      function primaryButtonRemoveAnimation() {
-        $welcomeSectionPrimaryButton
-          .removeClass('animated')
-          .removeClass('slideInUp');
-      }
+                let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
+                let progress: number = 40;
 
-      $welcomeSectionPrimaryButton.mouseenter(() => {
-        primaryButtonRemoveAnimation();
-        if(!primaryButtonAnimating) {
-          $welcomeSectionPrimaryButton
-            .addClass('animated')
-            .addClass('pulse')
-            .addClass('infinite');
-        }
-      });
+                if (isMobile == false) {
+                    let interval: number = setInterval(() => {
+                        $progressBar.css('width', progress + '%');
 
-      $welcomeSectionPrimaryButton.mouseleave(() => {
-        primaryButtonRemoveAnimation();
-        if(!primaryButtonAnimating) {
-          $welcomeSectionPrimaryButton
-            .removeClass('animated')
-            .removeClass('pulse')
-            .removeClass('infinite');
-        }
-      });
+                        progress += 0.5;
 
-  } else {
-      $contactMeForm.css('visibility', 'visible');
-  }
+                        if (progress === percentage) {
+                            clearInterval(interval);
+                        }
+                    }, 10);
+                } else {
+                    $progressBar.css('width', percentage + '%');
+                }
 
-  for(let i = 0; i < $progressBars.length; i++) {
-    let $progressBar = $($progressBars[i]);
-    $progressBar.scrollspy({
-      min: $progressBar.offset().top - $(window).innerHeight() - 150,
-      max: $body.height(),
-      onEnter: () => {
-        if(activatedProgressBars[i] === true) return;
+                activatedProgressBars[i] = true;
+            }
+        });
+    }
 
-        let percentage: number = parseInt($progressBar.children().get(0).innerHTML.replace('%', ''));
-        let progress: number = 40;
+    $headerAboutLink.click((event) => {
+        event.preventDefault()
 
-        if (isMobile == false) {
-            let interval: number = setInterval(() => {
-              $progressBar.css('width', progress + '%');
-
-              progress += 0.5;
-
-              if(progress === percentage) {
-                clearInterval(interval);
-              }
-            }, 10);
-        } else {
-          $progressBar.css('width', percentage + '%');
-        }
-
-        activatedProgressBars[i] = true;
-      }
+        $('html body').animate({
+            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
+        }, 700);
     });
-  }
 
-  $headerAboutLink.click((event) => {
-    event.preventDefault()
+    $headerContactLink.click((event) => {
+        event.preventDefault();
 
-    $('html body').animate({
-      scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
-    }, 700);
-  });
+        $('html body').animate({
+            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
+        }, 700);
+    });
 
-  $headerContactLink.click((event) => {
-    event.preventDefault();
-
-    $('html body').animate({
-      scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
-    }, 700);
-  });
-
-  // $contactMeSectionHeader.scrollspy({
-  //   min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
-  //   max: $('body').height(),
-  //   onEnter: () => {
-  //     // let colorState: boolean = false;
-  //     // function changeColor() {
-  //     //   colorState = !colorState;
-  //     //   if(colorState) {
-  //     //     $contactMeSectionHeader.animate({
-  //     //       backgroundColor: 'green'
-  //     //     }, 1000, changeColor);
-  //     //   } else {
-  //     //     $contactMeSectionHeader.animate({
-  //     //       backgroundColor: 'black'
-  //     //     }, 1000, changeColor);
-  //     //   }
-  //     // }
-  //     // changeColor();
-  //     $contactMeSectionHeader
-  //       .addClass('animated')
-  //       .addClass('pulse')
-  //       .addClass('infinite');
-  //      setTimeout(() => {
-  //       $contactMeSectionHeader
-  //         .removeClass('animated')
-  //         .removeClass('pulse')
-  //         .removeClass('infinite');
-  //      }, 4000);
-  //   }
-  // });
+    // $contactMeSectionHeader.scrollspy({
+    //   min: $contactMeSectionHeader.offset().top - $(window).innerHeight(),
+    //   max: $('body').height(),
+    //   onEnter: () => {
+    //     // let colorState: boolean = false;
+    //     // function changeColor() {
+    //     //   colorState = !colorState;
+    //     //   if(colorState) {
+    //     //     $contactMeSectionHeader.animate({
+    //     //       backgroundColor: 'green'
+    //     //     }, 1000, changeColor);
+    //     //   } else {
+    //     //     $contactMeSectionHeader.animate({
+    //     //       backgroundColor: 'black'
+    //     //     }, 1000, changeColor);
+    //     //   }
+    //     // }
+    //     // changeColor();
+    //     $contactMeSectionHeader
+    //       .addClass('animated')
+    //       .addClass('pulse')
+    //       .addClass('infinite');
+    //      setTimeout(() => {
+    //       $contactMeSectionHeader
+    //         .removeClass('animated')
+    //         .removeClass('pulse')
+    //         .removeClass('infinite');
+    //      }, 4000);
+    //   }
+    // });
 
 
 
-  // let welcomeSectionLettersAnimationTime: number = 300;
+    // let welcomeSectionLettersAnimationTime: number = 300;
 
-  // $welcomeSectionPrimaryHeader.textillate({
-  //   in: {
-  //     effect: 'rollIn',
-  //     sync: true,
-  //     delay: welcomeSectionLettersAnimationTime
-  //   }
-  // });
+    // $welcomeSectionPrimaryHeader.textillate({
+    //   in: {
+    //     effect: 'rollIn',
+    //     sync: true,
+    //     delay: welcomeSectionLettersAnimationTime
+    //   }
+    // });
 
-  // $welcomeSectionSecondaryHeader.textillate({
-  //   in: {
-  //     effect: 'rollIn',
-  //     reverse: true,
-  //     delay: welcomeSectionLettersAnimationTime,
-  //     sync: true 
-  //   }
-  // });
+    // $welcomeSectionSecondaryHeader.textillate({
+    //   in: {
+    //     effect: 'rollIn',
+    //     reverse: true,
+    //     delay: welcomeSectionLettersAnimationTime,
+    //     sync: true 
+    //   }
+    // });
 
-  // $welcomeSectionSlogan.textillate({
-  //   in: {
-  //     effect: 'rollIn',
-  //     reverse: true,
-  //     delay: welcomeSectionLettersAnimationTime,
-  //     sync: true
-  //   }
-  // });
+    // $welcomeSectionSlogan.textillate({
+    //   in: {
+    //     effect: 'rollIn',
+    //     reverse: true,
+    //     delay: welcomeSectionLettersAnimationTime,
+    //     sync: true
+    //   }
+    // });
 
 
-  $parallaxBreak.parallax({imageSrc: 'images/sky.jpg', parallax: 'scroll'});
+    $parallaxBreak.parallax({
+        imageSrc: 'images/sky.jpg',
+        parallax: 'scroll'
+    });
 
-  // $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
+    // $whatIDoSectionParallax.parallax({imageSrc: 'images/sky2.jpg'});
 
-  $header.scrollspy({
-    min: 1,
-    max: $body.height(),
-    onEnter: (element, position) => {
-      $header.addClass('header--fixed');
-      $header.find('.primary-button').addClass('primary-button--color-dark--hover');
-    },
-    onLeave: (element, position) => {
-      $header.removeClass('header--fixed');
-      $header.find('.primary-button').removeClass('primary-button--color-dark--hover');
-    }
-  });
+    $header.scrollspy({
+        min: 1,
+        max: $body.height(),
+        onEnter: (element, position) => {
+            $header.addClass('header--fixed');
+            $header.find('.primary-button').addClass('primary-button--color-dark--hover');
+        },
+        onLeave: (element, position) => {
+            $header.removeClass('header--fixed');
+            $header.find('.primary-button').removeClass('primary-button--color-dark--hover');
+        }
+    });
 
-  $headerCarousel.slick({
-    // autoplay: true,
-    appendArrows: $welcomeSectionShadow,
-    autoplaySpeed: 5000,
-    arrows: true,
-    fade: true,
-    infinite: true,
-    speed: 2500,
-    swipe: false
-  });
+    $headerCarousel.slick({
+        // autoplay: true,
+        appendArrows: $welcomeSectionShadow,
+        autoplaySpeed: 5000,
+        arrows: true,
+        fade: true,
+        infinite: true,
+        speed: 2500,
+        swipe: false
+    });
 
-  // $whatIDoSectionCarousel.slick({
-  //   appendArrows: $whatIDoSectionContentWrapper,
-  //   infinite: true,
-  //   arrows: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 3,
-  //   swipe: false,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1440,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1
-  //       }
-  //     }
-  //   ]
-  // });
+    // $whatIDoSectionCarousel.slick({
+    //   appendArrows: $whatIDoSectionContentWrapper,
+    //   infinite: true,
+    //   arrows: true,
+    //   slidesToShow: 3,
+    //   slidesToScroll: 3,
+    //   swipe: false,
+    //   responsive: [
+    //     {
+    //       breakpoint: 1440,
+    //       settings: {
+    //         slidesToShow: 2,
+    //         slidesToScroll: 1
+    //       }
+    //     },
+    //     {
+    //       breakpoint: 1024,
+    //       settings: {
+    //         slidesToShow: 1,
+    //         slidesToScroll: 1
+    //       }
+    //     }
+    //   ]
+    // });
 
-  $openOffcanvas.click(() => {
-    $openOffcanvas.toggleClass('hamburger--open');
-  });
+    $openOffcanvas.click(() => {
+        $openOffcanvas.toggleClass('hamburger--open');
+    });
 
-  $siteOverlay.click(() => {
-    $openOffcanvas.removeClass('hamburger--open');
-  });
+    $siteOverlay.click(() => {
+        $openOffcanvas.removeClass('hamburger--open');
+    });
 
-  $(window).scroll();
+    $(window).scroll();
 });

@@ -22,13 +22,17 @@ $(function () {
     var $aboutMeSectionImageWrapper = $('.about-me-section__image-wrapper');
     var $contactMeSectionHeader = $('.contact-me-section__header');
     var $contactMeForm = $('#contact-me-form');
-    var isMobile;
-    if (window.innerWidth <= 768) {
+    var isMobile = false;
+    if (navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i)) {
         isMobile = true;
     }
-    else {
-        isMobile = false;
-    }
+    console.log(isMobile);
     if (!isMobile) {
         $aboutMeSectionTextWrapper.scrollspy({
             min: $aboutMeSectionTextWrapper.offset().top - $(window).innerHeight(),
@@ -150,7 +154,10 @@ $(function () {
             scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
         }, 700);
     });
-    $parallaxBreak.parallax({ imageSrc: 'images/sky.jpg', parallax: 'scroll' });
+    $parallaxBreak.parallax({
+        imageSrc: 'images/sky.jpg',
+        parallax: 'scroll'
+    });
     $header.scrollspy({
         min: 1,
         max: $body.height(),
