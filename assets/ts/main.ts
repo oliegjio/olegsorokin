@@ -206,10 +206,10 @@ $(() => {
             url: 'mail.php',
             data: $contactMeForm.serialize(),
             success: (response) => {
-                alert(response);
+
             },
             error: () => {
-                alert("Error");
+
             }
         });
     });

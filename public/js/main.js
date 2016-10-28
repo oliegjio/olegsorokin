@@ -186,10 +186,8 @@ $(function () {
             url: 'mail.php',
             data: $contactMeForm.serialize(),
             success: function (response) {
-                alert(response);
             },
             error: function () {
-                alert("Error");
             }
         });
     });
