@@ -4,6 +4,8 @@ $(function () {
     var $headerCarousel = $('.header-carousel').first();
     var $headerLogo = $('.header__logo');
     var $body = $('body');
+    var $portfolioSectionFirstItem = $('.portfolio-section__item-wrapper').first();
+    var $portfolioSectionSecondItem = $('.portfolio-section__item-wrapper').last();
     var $openOffcanvas = $('#open-offcanvas');
     var $siteOverlay = $('.site-overlay').first();
     var $offcanvasMenu = $('.offcanvas-menu').first();
@@ -48,6 +50,24 @@ $(function () {
                 $aboutMeSectionTextWrapper
                     .addClass('animated')
                     .addClass('bounceInLeft');
+            }
+        });
+        $portfolioSectionFirstItem.scrollspy({
+            min: $portfolioSectionFirstItem.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: function () {
+                $portfolioSectionFirstItem
+                    .addClass('animated')
+                    .addClass('bounceInLeft');
+            }
+        });
+        $portfolioSectionSecondItem.scrollspy({
+            min: $portfolioSectionSecondItem.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: function () {
+                $portfolioSectionSecondItem
+                    .addClass('animated')
+                    .addClass('bounceInRight');
             }
         });
         $aboutMeSectionImageWrapper.scrollspy({

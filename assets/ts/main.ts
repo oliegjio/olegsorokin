@@ -12,6 +12,8 @@ $(() => {
     let $headerCarousel: JQuery = $('.header-carousel').first()
     let $headerLogo: JQuery = $('.header__logo')
     let $body: JQuery = $('body')
+    let $portfolioSectionFirstItem: JQuery = $('.portfolio-section__item-wrapper').first()
+    let $portfolioSectionSecondItem: JQuery = $('.portfolio-section__item-wrapper').last()
     let $openOffcanvas: JQuery = $('#open-offcanvas')
     let $siteOverlay: JQuery = $('.site-overlay').first()
     let $offcanvasMenu: JQuery = $('.offcanvas-menu').first()
@@ -60,6 +62,26 @@ $(() => {
                 $aboutMeSectionTextWrapper
                     .addClass('animated')
                     .addClass('bounceInLeft')
+            }
+        })
+
+        $portfolioSectionFirstItem.scrollspy({
+            min: $portfolioSectionFirstItem.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: () => {
+                $portfolioSectionFirstItem
+                    .addClass('animated')
+                    .addClass('bounceInLeft')
+            }
+        })
+
+        $portfolioSectionSecondItem.scrollspy({
+            min: $portfolioSectionSecondItem.offset().top - $(window).innerHeight(),
+            max: $('body').height(),
+            onEnter: () => {
+                $portfolioSectionSecondItem
+                    .addClass('animated')
+                    .addClass('bounceInRight')
             }
         })
 
