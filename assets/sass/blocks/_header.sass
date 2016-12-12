@@ -52,7 +52,7 @@ $header__accented--color: $header--color-accent
   +element('links-wrapper')
     display: flex
     flex-flow: row nowrap
-    flex: 0 1 300px
+    flex: 0 1 500px
     margin-right: $header--wrappers-margin-1
     @media screen and (max-width: 1440px)
       margin-right: $header--wrappers-margin-2
@@ -114,7 +114,9 @@ $header__accented--color: $header--color-accent
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15)
     background-color: white
     .header__links-wrapper
-      flex: 0 1 500px
+      flex: 0 1 600px
+      @media screen and (max-width: 1024px)
+        flex: 0 1 500px
     .primary-button
       display: block
     .hamburger__item
