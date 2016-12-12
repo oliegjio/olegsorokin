@@ -36,7 +36,7 @@ var exclude = function(path){
   }
 }
 
-var jade_src = 'assenotifications/jade/**/*.jade';
+var jade_src = 'assets/jade/**/*.jade';
 var jade_src_excluded = exclude('assets/jade/**/*.jade')
 var jade_dest = 'public/';
 gulp.task('jade', function(){

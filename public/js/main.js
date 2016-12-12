@@ -6,6 +6,9 @@ $(function () {
     var $openOffcanvas = $('#open-offcanvas');
     var $siteOverlay = $('.site-overlay').first();
     var $offcanvasMenu = $('.offcanvas-menu').first();
+    var $offcanvasMenuHomeLink = $('.offcanvas-menu__home-link');
+    var $offcanvasMenuContactLink = $('.offcanvas-menu__contact-link');
+    var $offcanvasMenuAboutLink = $('.offcanvas-menu__about-link');
     var $parallaxBreak = $('.parallax-break');
     var $progressBars = $('.skills-section__progress-bar');
     var activatedProgressBars = [false, false, false, false];
@@ -53,7 +56,7 @@ $(function () {
             }
         });
         $contactMeForm.scrollspy({
-            min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 2),
+            min: $contactMeForm.offset().top - $(window).innerHeight() + ($contactMeForm.height() / 4),
             max: $('body').height(),
             onEnter: function () {
                 $contactMeForm.css('visibility', 'visible');
@@ -141,6 +144,27 @@ $(function () {
         $('html body').animate({
             scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
         }, 700);
+    });
+    $offcanvasMenuHomeLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: 0
+        }, 700);
+        $openOffcanvas.click();
+    });
+    $offcanvasMenuAboutLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 12)
+        }, 700);
+        $openOffcanvas.click();
+    });
+    $offcanvasMenuContactLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 12)
+        }, 700);
+        $openOffcanvas.click();
     });
     $headerContactLink.click(function (event) {
         event.preventDefault();
