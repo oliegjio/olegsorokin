@@ -10,6 +10,7 @@ $(() => {
     let $welcomeSectionShadow: JQuery = $('.welcome-section__shadow').first()
     let $header: JQuery = $('.header').first()
     let $headerCarousel: JQuery = $('.header-carousel').first()
+    let $headerLogo: JQuery = $('.header__logo')
     let $body: JQuery = $('body')
     let $openOffcanvas: JQuery = $('#open-offcanvas')
     let $siteOverlay: JQuery = $('.site-overlay').first()
@@ -17,11 +18,14 @@ $(() => {
     let $offcanvasMenuHomeLink: JQuery = $('.offcanvas-menu__home-link')
     let $offcanvasMenuContactLink: JQuery = $('.offcanvas-menu__contact-link')
     let $offcanvasMenuAboutLink: JQuery = $('.offcanvas-menu__about-link')
+    let $offcanvasMenuPortfolioLink: JQuery = $('.offcanvas-menu__portfolio-link')
     let $parallaxBreak: JQuery = $('.parallax-break')
     let $progressBars: JQuery = $('.skills-section__progress-bar')
-    let activatedProgressBars: Array < boolean > = [false, false, false, false]
+    let activatedProgressBars: Array <boolean > = [false, false, false, false]
     let $headerAboutLink: JQuery = $('.header__about-link')
+    let $portfolioSection: JQuery = $('.portfolio-section')
     let $headerContactLink: JQuery = $('.header__contact-link')
+    let $headerPortfolioLink: JQuery = $('.header__portfolio-link')
     let $aboutMeSection: JQuery = $('.about-me-section')
     let $contactMeSection: JQuery = $('.contact-me-section')
     let $advantagesSectionAdvantage: JQuery = $('.advantages-section__advantage')
@@ -154,7 +158,21 @@ $(() => {
     $headerAboutLink.click((event) => {
         event.preventDefault()
         $('html body').animate({
-            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
+            scrollTop: $aboutMeSection.offset().top - 100
+        }, 700)
+    })
+
+    $headerPortfolioLink.click((event) => {
+        event.preventDefault()
+        $('html body').animate({
+            scrollTop: $portfolioSection.offset().top - 100
+        }, 700)
+    })
+
+    $headerContactLink.click((event) => {
+        event.preventDefault()
+        $('html body').animate({
+            scrollTop: $contactMeSection.offset().top - 100
         }, 700)
     })
 
@@ -169,7 +187,7 @@ $(() => {
     $offcanvasMenuAboutLink.click((event) => {
         event.preventDefault()
         $('html body').animate({
-            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 12)
+            scrollTop: $aboutMeSection.offset().top - 100
         }, 700)
         $openOffcanvas.click()
     })
@@ -177,15 +195,23 @@ $(() => {
     $offcanvasMenuContactLink.click((event) => {
         event.preventDefault()
         $('html body').animate({
-            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 12)
+            scrollTop: $contactMeSection.offset().top - 100
         }, 700)
         $openOffcanvas.click()
     })
 
-    $headerContactLink.click((event) => {
+    $offcanvasMenuPortfolioLink.click((event) => {
         event.preventDefault()
         $('html body').animate({
-            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
+            scrollTop: $portfolioSection.offset().top - 100
+        }, 700)
+        $openOffcanvas.click()
+    })
+
+    $headerLogo.click((event) => {
+        event.preventDefault()
+        $('html body').animate({
+            scrollTop: 0
         }, 700)
     })
 

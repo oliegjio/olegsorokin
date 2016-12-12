@@ -2,6 +2,7 @@ $(function () {
     var $welcomeSectionShadow = $('.welcome-section__shadow').first();
     var $header = $('.header').first();
     var $headerCarousel = $('.header-carousel').first();
+    var $headerLogo = $('.header__logo');
     var $body = $('body');
     var $openOffcanvas = $('#open-offcanvas');
     var $siteOverlay = $('.site-overlay').first();
@@ -9,11 +10,14 @@ $(function () {
     var $offcanvasMenuHomeLink = $('.offcanvas-menu__home-link');
     var $offcanvasMenuContactLink = $('.offcanvas-menu__contact-link');
     var $offcanvasMenuAboutLink = $('.offcanvas-menu__about-link');
+    var $offcanvasMenuPortfolioLink = $('.offcanvas-menu__portfolio-link');
     var $parallaxBreak = $('.parallax-break');
     var $progressBars = $('.skills-section__progress-bar');
     var activatedProgressBars = [false, false, false, false];
     var $headerAboutLink = $('.header__about-link');
+    var $portfolioSection = $('.portfolio-section');
     var $headerContactLink = $('.header__contact-link');
+    var $headerPortfolioLink = $('.header__portfolio-link');
     var $aboutMeSection = $('.about-me-section');
     var $contactMeSection = $('.contact-me-section');
     var $advantagesSectionAdvantage = $('.advantages-section__advantage');
@@ -142,7 +146,19 @@ $(function () {
     $headerAboutLink.click(function (event) {
         event.preventDefault();
         $('html body').animate({
-            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 2)
+            scrollTop: $aboutMeSection.offset().top - 100
+        }, 700);
+    });
+    $headerPortfolioLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $portfolioSection.offset().top - 100
+        }, 700);
+    });
+    $headerContactLink.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: $contactMeSection.offset().top - 100
         }, 700);
     });
     $offcanvasMenuHomeLink.click(function (event) {
@@ -155,21 +171,28 @@ $(function () {
     $offcanvasMenuAboutLink.click(function (event) {
         event.preventDefault();
         $('html body').animate({
-            scrollTop: $aboutMeSection.offset().top - ($aboutMeSection.height() / 12)
+            scrollTop: $aboutMeSection.offset().top - 100
         }, 700);
         $openOffcanvas.click();
     });
     $offcanvasMenuContactLink.click(function (event) {
         event.preventDefault();
         $('html body').animate({
-            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 12)
+            scrollTop: $contactMeSection.offset().top - 100
         }, 700);
         $openOffcanvas.click();
     });
-    $headerContactLink.click(function (event) {
+    $offcanvasMenuPortfolioLink.click(function (event) {
         event.preventDefault();
         $('html body').animate({
-            scrollTop: $contactMeSection.offset().top - ($contactMeSection.height() / 8)
+            scrollTop: $portfolioSection.offset().top - 100
+        }, 700);
+        $openOffcanvas.click();
+    });
+    $headerLogo.click(function (event) {
+        event.preventDefault();
+        $('html body').animate({
+            scrollTop: 0
         }, 700);
     });
     $parallaxBreak.parallax({
