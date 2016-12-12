@@ -1,0 +1,49 @@
+@import '../setup/vars'
+@import '../setup/mixins'
+
+// $portfolio-section__background-color: $color__secondary
+
+.portfolio-section
+  background-color: $color__secondary
+  padding: 110px 0
+  color: $color__text--primary
+  text-align: center
+  +element('header')
+    text-transform: uppercase
+    letter-spacing: 7px
+    margin: 0
+  +element('item-image')
+    max-width: 100%
+  +element('items-wrapper')
+    margin-top: 125px
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-around
+    @media screen and (max-width: 1024px)
+      margin-top: 95px
+    @media screen and (max-width: 768px)
+      flex-flow: column nowrap
+      align-items: center
+  +element('item-wrapper')
+    display: flex
+    flex-flow: column nowrap
+    width: 500px
+    @media screen and (max-width: 1440px)
+      width: 380px
+    @media screen and (max-width: 1024px)
+      width: 250px
+    @media screen and (max-width: 768px)
+      margin-top: 150px
+      &:first-of-type
+        margin-top: 0
+  +element('item-tags')
+    color: $color__text--secondary
+    letter-spacing: 2px
+    margin-top: 10px
+    font-style: italic
+    font-size: $font__size--6
+  +element('item-header')
+    letter-spacing: 1px
+    margin-bottom: 0
+  +element('item-description')
+    margin-top: 35px
