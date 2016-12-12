@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var shell = require('gulp-shell');
 var plumber = require('gulp-plumber');
 
-var twmn_notifications = true;
+var notifications = true;
 
 var excluded = [
   'node_modules/**/*',
@@ -36,7 +36,7 @@ var exclude = function(path){
   }
 }
 
-var jade_src = 'assets/jade/**/*.jade';
+var jade_src = 'assenotifications/jade/**/*.jade';
 var jade_src_excluded = exclude('assets/jade/**/*.jade')
 var jade_dest = 'public/';
 gulp.task('jade', function(){
@@ -44,14 +44,14 @@ gulp.task('jade', function(){
     .pipe(plumber({
         errorHandler: function(event) {
             util.log(event);
-            if(twmn_notifications) gulp.start('jade_error_notify');
+            if(notifications) gulp.start('jade_error_notify');
         }
     }))
     .pipe(jade())
     .pipe(gulp.dest(jade_dest));
 });
 gulp.task('jade_error_notify', shell.task([
-    'twmnc -c ">>>>>>>>>>>> Jade  Error <<<<<<<<<<<<" -d 3000 --fs 25 --fg pink -s 40'
+    'notify-send "Jade Error" "Compilation problem"'
 ]));
 
 var css_src = [
@@ -65,7 +65,7 @@ gulp.task('css', function(){
     .pipe(plumber({
         errorHandler: function(event) {
             util.log(event);
-            if(twmn_notifications) gulp.start('css_error_notify');
+            if(notifications) gulp.start('css_error_notify');
         }
     }))
     .pipe(concat('all.css'))
@@ -73,7 +73,7 @@ gulp.task('css', function(){
     .pipe(gulp.dest(css_dest));
 });
 gulp.task('css_error_notify', shell.task([
-    'twmnc -c ">>>>>>>>>>>> CSS  Error <<<<<<<<<<<<" -d 3000 --fs 25 --fg pink -s 40'
+    'notify-send "CSS Error" "Compilation problem"'
 ]));
 
 var js_src = [
@@ -94,7 +94,7 @@ gulp.task('js', function(){
     .pipe(plumber({
         errorHandler: function(event) {
             util.log(event);
-            if(twmn_notifications) gulp.start('js_error_notify');
+            if(notifications) gulp.start('js_error_notify');
         }
     }))
     .pipe(concat('lib.js'))
@@ -102,7 +102,7 @@ gulp.task('js', function(){
     .pipe(gulp.dest(js_dest));
 });
 gulp.task('js_error_notify', shell.task([
-    'twmnc -c ">>>>>>>>>>>> JS Error <<<<<<<<<<<<" -d 3000 --fs 25 --fg pink -s 40'
+    'notify-send "JS Error" "Compilation problem"'
 ]));
 
 var sass_src = exclude([
@@ -114,7 +114,7 @@ gulp.task('sass', function(){
     .pipe(plumber({
         errorHandler: function(event) {
             util.log(event);
-            if(twmn_notifications) gulp.start('sass_error_notify');
+            if(notifications) gulp.start('sass_error_notify');
         }
     }))
     .pipe(sourcemaps.init())
@@ -124,7 +124,7 @@ gulp.task('sass', function(){
     .pipe(gulp.dest(sass_dest));
 });
 gulp.task('sass_error_notify', shell.task([
-    'twmnc -c ">>>>>>>>>>>> SASS Error <<<<<<<<<<<<" -d 3000 --fs 25 --fg pink -s 40'
+    'notify-send "SASS Error" "Compilation problem"'
 ]));
 
 var ts_src = exclude('assets/ts/**/*.ts');
@@ -135,7 +135,7 @@ gulp.task('ts', function(){
     .pipe(plumber({
         errorHandler: function(event) {
             util.log(event);
-            if(twmn_notifications) gulp.start('ts_error_notify');
+            if(notifications) gulp.start('ts_error_notify');
         }
     }))
     .pipe(sourcemaps.init())
@@ -146,7 +146,7 @@ gulp.task('ts', function(){
     .pipe(gulp.dest(ts_dest));
 });
 gulp.task('ts_error_notify', shell.task([
-    'twmnc -c ">>>>>>>>>>>> TS Error <<<<<<<<<<<<" -d 3000 --fs 25 --fg pink -s 40'
+    'notify-send "TS Error" "Compilation problem"'
 ]));
 
 gulp.task('watch', function(){
